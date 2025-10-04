@@ -1,0 +1,64 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "a0093880-561c-4705-ae36-e944de7fef10"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Delay": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "945d1679-a06b-4ae1-a315-1be9bb2dc903"
+          },
+          "type": "Wait",
+          "inputs": {
+            "interval": {
+              "count": 15,
+              "unit": "Second"
+            }
+          }
+        },
+        "Delay_until": {
+          "runAfter": {
+            "Delay": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "88d555f2-35e0-4c18-9f0e-43225df6cb89"
+          },
+          "type": "Wait",
+          "inputs": {
+            "until": {
+              "timestamp": "@{addSeconds(utcNow(),15)}"
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,83 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cr7d6_cref_dataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "undefined",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "f92d08aa-796f-4375-8abf-9e5bd4e04bfb"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Perform_an_unbound_action": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "f33263a0-9f26-4f1a-80d1-66d97601e262"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "PerformUnboundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "actionName": "ExportSolution",
+              "item/SolutionName": "Community",
+              "item/Managed": false,
+              "item/ExportAutoNumberingSettings": false,
+              "item/ExportCalendarSettings": false,
+              "item/ExportCustomizationSettings": false,
+              "item/ExportEmailTrackingSettings": false,
+              "item/ExportGeneralSettings": false,
+              "item/ExportMarketingSettings": false,
+              "item/ExportOutlookSynchronizationSettings": false,
+              "item/ExportRelationshipRoles": false,
+              "item/ExportIsvConfig": false,
+              "item/ExportSales": false,
+              "item/ExportExternalApplications": false
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

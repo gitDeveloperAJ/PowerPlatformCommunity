@@ -1,0 +1,73 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_powerbi": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "cr7d6_sharedpowerbi_04a12"
+        },
+        "api": {
+          "name": "shared_powerbi"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "89efcd70-5466-4be9-93df-b74da9e4f726"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Run_a_query_against_a_dataset": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "3f78f352-ca94-4a08-b9e6-0b4cb9514cc1"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_powerbi",
+              "operationId": "ExecuteDatasetQuery",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerbi"
+            },
+            "parameters": {
+              "groupid": "myworkspace",
+              "datasetid": "bc1d7589-6883-4455-97db-c692396284c2",
+              "specification/query": "// DAX Query\nDEFINE\n\tVAR __DS0FilterTable = \n\t\tTREATAS({\"Net sales - store breakdown\"}, 'Tooltip Info'[nombre])\n\n\tVAR __DS0FilterTable2 = \n\t\tTREATAS({\"Sold\"}, 'Sales'[Status])\n\n\tVAR __DS0FilterTable3 = \n\t\tTREATAS({\"June\"}, 'LocalDateTable_d9fbe243-4814-4038-8eec-593e864a563b'[Month])\n\n\tVAR __DS0Core = \n\t\tSUMMARIZECOLUMNS(\n\t\t\t'Store'[Store],\n\t\t\t__DS0FilterTable,\n\t\t\t__DS0FilterTable2,\n\t\t\t__DS0FilterTable3,\n\t\t\t\"SumAmount\", CALCULATE(SUM('Sales'[Amount])),\n\t\t\t\"Store_Top_N\", IGNORE('Design DAX'[Store Top N])\n\t\t)\n\n\tVAR __DS0PrimaryWindowed = \n\t\tTOPN(1001, __DS0Core, [SumAmount], 0, 'Store'[Store], 1)\n\nEVALUATE\n\t__DS0PrimaryWindowed\n\nORDER BY\n\t[SumAmount] DESC, 'Store'[Store]\n",
+              "specification/serializerSettings/includeNulls": true
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

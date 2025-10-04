@@ -1,0 +1,32 @@
+Workflow:
+  '@WorkflowId': '{a4a4a316-a859-f011-bec1-7c1e5219079a}'
+  '@Name': unbound
+  XamlFileName: /customoperations/a4a4a316-a859-f011-bec1-7c1e5219079a/unbound-A4A4A316-A859-F011-BEC1-7C1E5219079A.xaml
+  Type: 1
+  Subprocess: 0
+  Category: 3
+  Mode: 0
+  Scope: 4
+  OnDemand: 0
+  TriggerOnCreate: 1
+  TriggerOnDelete: 0
+  AsyncAutodelete: 0
+  SyncWorkflowLogOnFailure: 1
+  StateCode: 1
+  StatusCode: 2
+  CreateStage: 40
+  RunAs: 1
+  SdkMessageId: '{a5a4a316-a859-f011-bec1-7c1e5219079a}'
+  UniqueName: unbound
+  IsTransacted: 1
+  IntroducedVersion: 1.0.0.0
+  IsCustomizable: 1
+  BusinessProcessType: 0
+  FormId: '{00000000-0000-0000-0000-000000000000}'
+  IsCustomProcessingStepAllowedForOtherPublishers: 1
+  ModernFlowType: 0
+  PrimaryEntity: none
+  LocalizedNames:
+    LocalizedName:
+      '@languagecode': 1033
+      '@description': unbound

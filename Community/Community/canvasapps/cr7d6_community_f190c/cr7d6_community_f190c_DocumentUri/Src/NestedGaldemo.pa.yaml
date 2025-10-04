@@ -1,0 +1,194 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  NestedGaldemo:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - ButtonCanvas6:
+          Control: Button@0.0.45
+          Properties:
+            OnSelect: |+
+              =ClearCollect(
+                  Wards,
+                  Table(
+                      { ID: 1, Title: "Ward A", Division: "North" },
+                      { ID: 2, Title: "Ward B", Division: "North" },
+                      { ID: 3, Title: "Ward C", Division: "South" },
+                      { ID: 4, Title: "Ward D", Division: "South" },
+                      { ID: 5, Title: "Ward E", Division: "East" }
+                  )
+              );
+              ClearCollect(
+                  'FTSU Ward Visits - Dev',
+                  Table(
+                      { ID: 101, 'Ward Area': { Value: "Ward A" }, Created: Date(2025, 9, 20) },
+                      { ID: 102, 'Ward Area': { Value: "Ward C" }, Created: Date(2025, 9, 22) }
+                  )
+              );
+              // Simulating date picker selections
+              Set(NotVisitedFromDate_dp, { SelectedDate: Date(2025, 9, 19) });
+              Set(NotVisitedToDate_dp,   { SelectedDate: Date(2025, 9, 25) });
+            X: =40
+            Y: =40
+      - ButtonCanvas7:
+          Control: Button@0.0.45
+          Properties:
+            OnSelect: |-
+              =ClearCollect(
+                  colDivisions,
+                  AddColumns(
+                      GroupBy(
+                          Filter(
+                              Wards,
+                              !('Title' in ForAll(
+                                  Filter(
+                                      'FTSU Ward Visits - Dev',
+                                      Created >= NotVisitedFromDate_dp.SelectedDate &&
+                                      Created <= NotVisitedToDate_dp.SelectedDate
+                                  ),
+                                  'Ward Area'.Value
+                              ))
+                          ),
+                       Division,     
+                        Gallery2    
+                      ),
+                      WardCount, CountRows(Wards)  
+                  )
+              )
+            X: =392
+            Y: =40
+      - Gallery2:
+          Control: Gallery@2.15.0
+          Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Items: |-
+              =AddColumns(
+                      GroupBy(
+                          Filter(
+                              Wards,
+                              !('Title' in ForAll(
+                                  Filter(
+                                      'FTSU Ward Visits - Dev',
+                                      Created >= NotVisitedFromDate_dp.SelectedDate &&
+                                      Created <= NotVisitedToDate_dp.SelectedDate
+                                  ),
+                                  'Ward Area'.Value
+                              ))
+                          ),
+                       Division,     
+                        Gallery2    
+                      ),
+                      WardCount, CountRows(Wards)  
+                  )
+            TemplateSize: =271
+            Width: =1192
+            X: =136
+            Y: =162
+          Children:
+            - Title2:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  Color: =RGBA(50, 49, 48, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                  Height: =Self.Size * 1.8
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =0
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =0
+                  Size: =14
+                  Text: =ThisItem.Division
+                  VerticalAlign: =VerticalAlign.Top
+                  Width: =Parent.TemplateWidth - 173
+                  Y: =(Parent.TemplateHeight - (Self.Size * 1.8 )) / 2
+            - Separator2:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Fill: =RGBA(255, 255, 255, 1)
+                  Height: =8
+                  OnSelect: =Select(Parent)
+                  Width: =Parent.TemplateWidth
+                  Y: =Parent.TemplateHeight - Self.Height
+            - Rectangle2:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Fill: =RGBA(0, 18, 107, 1)
+                  Height: =Parent.TemplateHeight - Separator2.Height
+                  OnSelect: =Select(Parent)
+                  Visible: =ThisItem.IsSelected
+                  Width: =4
+            - Gallery3:
+                Control: Gallery@2.15.0
+                Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Height: =271
+                  Items: =ThisItem.Gallery2
+                  X: =348
+                Children:
+                  - Title3:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(50, 49, 48, 1)
+                        Font: =Font.'Open Sans'
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =ThisItem.Title
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.TemplateWidth - 173
+                        X: =30
+                  - Subtitle3:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Font: =Font.'Open Sans'
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =ThisItem.ID
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title3.Width
+                        X: =30
+                        Y: =49
+                  - Separator3:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =8
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                  - Rectangle3:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(0, 18, 107, 1)
+                        Height: =Parent.TemplateHeight - Separator3.Height
+                        OnSelect: =Select(Parent)
+                        Visible: =ThisItem.IsSelected
+                        Width: =4

@@ -1,0 +1,41 @@
+CanvasApp:
+  Name: cr7d6_community_f190c
+  AppVersion: 2025-09-30T14:34:10.0000000Z
+  Status: Ready
+  CreatedByClientVersion: 3.25093.16.0
+  MinClientVersion: 3.25093.16.0
+  Tags: '{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.25093.16","minimumRequiredApiVersion":"2.2.0","hasComponent":"true","hasUnlockedComponent":"true","isUnifiedRootApp":"false","sienaVersion":"20250930T143410Z-3.25093.16.0","coauthoringEnabled":"true","multipleWritersEnabled":"true","acceptedCoauthoringTerms":"true"}'
+  IsCdsUpgraded: 0
+  GalleryItemId:
+    '@xsi:nil': true
+    '@xmlns:xsi': http://www.w3.org/2001/XMLSchema-instance
+  BackgroundColor: RGBA(0,176,240,1)
+  DisplayName: Community
+  Description:
+    '@xsi:nil': true
+    '@xmlns:xsi': http://www.w3.org/2001/XMLSchema-instance
+  CommitMessage:
+    '@xsi:nil': true
+    '@xmlns:xsi': http://www.w3.org/2001/XMLSchema-instance
+  Publisher:
+    '@xsi:nil': true
+    '@xmlns:xsi': http://www.w3.org/2001/XMLSchema-instance
+  AuthorizationReferences: '[]'
+  ConnectionReferences: '{"66b11635-5fca-4425-98f4-cea0eb2acb0f":{"id":"/providers/microsoft.powerapps/apis/shared_dynamicssmbsaas","displayName":"Dynamics 365 Business Central","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1769/1.0.1769.4352/dynamicssmbsaas/icon.png","dataSources":["agedAccountsPayables (v2.0)","apiRoutes (microsoft/runtime/beta)"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{"PRODUCTION,87259917-7688-f011-b9d1-6045bdacc6f4":{"dataSources":{"agedAccountsPayables (v2.0)":{"tableName":"agedAccountsPayables,v2.0"},"apiRoutes (microsoft/runtime/beta)":{"tableName":"apiRoutes,microsoft%252Fruntime%252Fbeta"}}}},"apiTier":"Premium"},"9cc8fc58-02b5-4825-9d71-d0e5af2ef63c":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1766/1.0.1766.4330/logicflows/icon.png","dataSources":["PowerAppV2->Initializevariable,RespondtoaPowerApporflow,Co..."],"dependencies":[],"dependents":[],"parameterHints":{"workflowName":{"value":"61e184c4-655f-4750-a73a-dea48b43cc8b"},"workflowEntityId":{},"workflowDisplayName":{"value":"PowerAppV2 -> Initialize variable,Respond to a Power App or flow,Co..."}},"parameterHintsV2":{"workflowName":{"value":"61e184c4-655f-4750-a73a-dea48b43cc8b"},"workflowEntityId":{},"workflowDisplayName":{"value":"PowerAppV2 -> Initialize variable,Respond to a Power App or flow,Co..."}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"]},"cb28922d-fd9c-482a-adb5-45381b7aa748":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1766/1.0.1766.4330/logicflows/icon.png","dataSources":["peninput"],"dependencies":[],"dependents":[],"parameterHints":{"workflowName":{"value":"06c77fc8-84db-4d60-97f4-1b932b0c2191"},"workflowEntityId":{},"workflowDisplayName":{"value":"peninput"}},"parameterHintsV2":{"workflowName":{"value":"06c77fc8-84db-4d60-97f4-1b932b0c2191"},"workflowEntityId":{},"workflowDisplayName":{"value":"peninput"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard"},"0ac9bb31-e721-4491-81d3-2683d79130b9":{"id":"/providers/microsoft.powerapps/apis/shared_office365","displayName":"Office 365 Outlook","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1763/1.0.1763.4311/office365/icon.png","dataSources":["Office365Outlook"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["CalendarGetTables","GetEventsCalendarViewV2"]},"afe86b62-601c-4d24-b36c-1bb0c922d935":{"id":"/providers/microsoft.powerapps/apis/shared_office365groups","displayName":"Office 365 Groups","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/1759/1.0.1759.4274/office365groups/icon.png","dataSources":["Office365Groups"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard"},"1009ff21-7fa6-4022-a080-fb5d82c42f3b":{"id":"/providers/microsoft.powerapps/apis/shared_office365users","displayName":"Office 365 Users","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1767/1.0.1767.4341/office365users/icon.png","dataSources":["Office365Users"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["HttpRequest"]},"461c8e7e-c23b-4470-a37e-2ba056f2abd3":{"id":"/providers/microsoft.powerapps/apis/shared_microsoftspatialservices","displayName":"Spatial Services","iconUri":"https://conn-afd-prod-endpoint-bmc9bqahasf3grgk.b01.azurefd.net/v1.0.1769/1.0.1769.4352/microsoftspatialservices/icon.png","dataSources":["SpatialServices"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Premium"}}'
+  DatabaseReferences: '{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified","environmentVariableName":""}},"dataSources":{"Accounts":{"entitySetName":"accounts","logicalName":"account"}}}}'
+  AppComponents: '[]'
+  AppComponentDependencies: '[]'
+  CanConsumeAppPass: 0
+  CanvasAppType: 0
+  BypassConsent: 0
+  AdminControlBypassConsent: 0
+  EmbeddedApp:
+    '@xsi:nil': true
+    '@xmlns:xsi': http://www.w3.org/2001/XMLSchema-instance
+  IntroducedVersion: 1.0
+  CdsDependencies: '{"cdsdependencies":[{"logicalname":"account","componenttype":1}]}'
+  IsCustomizable: 1
+  BackgroundImageUri: /canvasapps/cr7d6_community_f190c/cr7d6_community_f190c_BackgroundImageUri
+  DocumentUri: /canvasapps/cr7d6_community_f190c/cr7d6_community_f190c_DocumentUri.msapp
+  AdditionalUris:
+    AdditionalUri: /canvasapps/cr7d6_community_f190c/cr7d6_community_f190c_AdditionalUris0_identity.json

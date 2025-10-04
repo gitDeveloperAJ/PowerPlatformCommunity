@@ -1,0 +1,1998 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.4.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "cmp_PopUp.cnt_PopUp.vcnt_PopUp.gal_Actions.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_PopUp.cnt_PopUp.vcnt_PopUp.gal_Actions.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "cmp_PopUp",
+                "type": "cmp_PopUp.cnt_PopUp.vcnt_PopUp.gal_Actions",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "cmp_PopUp.cnt_PopUp.vcnt_PopUp.gal_Actions.TabIndex"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_PopUp.cnt_PopUp.vcnt_PopUp.gal_Actions.TabIndex"
+                }
+              ],
+              "properties": {
+                "module": "cmp_PopUp",
+                "type": "cmp_PopUp.cnt_PopUp.vcnt_PopUp.gal_Actions",
+                "member": "TabIndex"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "cmp_PopUp.cnt_PopUp.vcnt_PopUp.gal_Actions.vcnt_Actions.btn_Action.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_PopUp.cnt_PopUp.vcnt_PopUp.gal_Actions.vcnt_Actions.btn_Action.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "cmp_PopUp",
+                "type": "cmp_PopUp.cnt_PopUp.vcnt_PopUp.gal_Actions.vcnt_Actions.btn_Action",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "cmp_GalDemo.Container1.ButtonCanvas5.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GalDemo.Container1.ButtonCanvas5.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "cmp_GalDemo",
+                "type": "cmp_GalDemo.Container1.ButtonCanvas5",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "cmp_GalDemo.Container1.Gallery1.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GalDemo.Container1.Gallery1.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "cmp_GalDemo",
+                "type": "cmp_GalDemo.Container1.Gallery1",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "cmp_GalDemo.Container1.Gallery1.TabIndex"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GalDemo.Container1.Gallery1.TabIndex"
+                }
+              ],
+              "properties": {
+                "module": "cmp_GalDemo",
+                "type": "cmp_GalDemo.Container1.Gallery1",
+                "member": "TabIndex"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "cmp_GalDemo.Container1.Gallery1.NextArrow1.TabIndex"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GalDemo.Container1.Gallery1.NextArrow1.TabIndex"
+                }
+              ],
+              "properties": {
+                "module": "cmp_GalDemo",
+                "type": "cmp_GalDemo.Container1.Gallery1.NextArrow1",
+                "member": "TabIndex"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "cmp_GalDemo.Container1.Gallery1.NextArrow1_1.TabIndex"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "cmp_GalDemo.Container1.Gallery1.NextArrow1_1.TabIndex"
+                }
+              ],
+              "properties": {
+                "module": "cmp_GalDemo",
+                "type": "cmp_GalDemo.Container1.Gallery1.NextArrow1_1",
+                "member": "TabIndex"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "Map.ButtonCanvas3.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Map.ButtonCanvas3.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "Map",
+                "type": "Map.ButtonCanvas3",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "PoPUP.btn_init_Popup.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PoPUP.btn_init_Popup.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "PoPUP",
+                "type": "PoPUP.btn_init_Popup",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "ExitTest.ButtonCanvas2.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ExitTest.ButtonCanvas2.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "ExitTest",
+                "type": "ExitTest.ButtonCanvas2",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "ExitTest.ButtonCanvas1.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ExitTest.ButtonCanvas1.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "ExitTest",
+                "type": "ExitTest.ButtonCanvas1",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "SVG.ButtonCanvas2_1.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SVG.ButtonCanvas2_1.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "SVG",
+                "type": "SVG.ButtonCanvas2_1",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "FlowData.ButtonCanvas4.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "FlowData.ButtonCanvas4.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "FlowData",
+                "type": "FlowData.ButtonCanvas4",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "NestedGaldemo.ButtonCanvas6.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NestedGaldemo.ButtonCanvas6.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "NestedGaldemo",
+                "type": "NestedGaldemo.ButtonCanvas6",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "NestedGaldemo.ButtonCanvas7.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NestedGaldemo.ButtonCanvas7.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "NestedGaldemo",
+                "type": "NestedGaldemo.ButtonCanvas7",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "NestedGaldemo.Gallery2.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NestedGaldemo.Gallery2.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "NestedGaldemo",
+                "type": "NestedGaldemo.Gallery2",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "NestedGaldemo.Gallery2.TabIndex"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NestedGaldemo.Gallery2.TabIndex"
+                }
+              ],
+              "properties": {
+                "module": "NestedGaldemo",
+                "type": "NestedGaldemo.Gallery2",
+                "member": "TabIndex"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "NestedGaldemo.Gallery2.Gallery3.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NestedGaldemo.Gallery2.Gallery3.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "NestedGaldemo",
+                "type": "NestedGaldemo.Gallery2.Gallery3",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "NestedGaldemo.Gallery2.Gallery3.TabIndex"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NestedGaldemo.Gallery2.Gallery3.TabIndex"
+                }
+              ],
+              "properties": {
+                "module": "NestedGaldemo",
+                "type": "NestedGaldemo.Gallery2.Gallery3",
+                "member": "TabIndex"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AlternativeInputNeeded",
+          "ruleIndex": 2,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "PDFViewer.PenInput1"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PDFViewer.PenInput1"
+                }
+              ],
+              "properties": {
+                "module": "PDFViewer",
+                "type": "PDFViewer.PenInput1"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Low"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "PDFViewer.PenInput1.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PDFViewer.PenInput1.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "PDFViewer",
+                "type": "PDFViewer.PenInput1",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AlternativeInputNeeded",
+          "ruleIndex": 2,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "PDFViewer.PenInput2"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PDFViewer.PenInput2"
+                }
+              ],
+              "properties": {
+                "module": "PDFViewer",
+                "type": "PDFViewer.PenInput2"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Low"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "PDFViewer.PenInput2.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PDFViewer.PenInput2.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "PDFViewer",
+                "type": "PDFViewer.PenInput2",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "PDFViewer.NumberInput1.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PDFViewer.NumberInput1.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "PDFViewer",
+                "type": "PDFViewer.NumberInput1",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "PDFViewer.ButtonCanvas8.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "PDFViewer.ButtonCanvas8.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "PDFViewer",
+                "type": "PDFViewer.ButtonCanvas8",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "CalendarScreen.dropdownCalendarSelection1.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarScreen.dropdownCalendarSelection1.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "CalendarScreen",
+                "type": "CalendarScreen.dropdownCalendarSelection1",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "CalendarScreen.iconCalendar1.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarScreen.iconCalendar1.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "CalendarScreen",
+                "type": "CalendarScreen.iconCalendar1",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "CalendarScreen.CalendarEventsGallery1.TabIndex"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarScreen.CalendarEventsGallery1.TabIndex"
+                }
+              ],
+              "properties": {
+                "module": "CalendarScreen",
+                "type": "CalendarScreen.CalendarEventsGallery1",
+                "member": "TabIndex"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "CalendarScreen.CalendarEventsGallery1.Rectangle4.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarScreen.CalendarEventsGallery1.Rectangle4.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "CalendarScreen",
+                "type": "CalendarScreen.CalendarEventsGallery1.Rectangle4",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "CalendarScreen.CalendarEventsGallery1.Body1.TabIndex"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarScreen.CalendarEventsGallery1.Body1.TabIndex"
+                }
+              ],
+              "properties": {
+                "module": "CalendarScreen",
+                "type": "CalendarScreen.CalendarEventsGallery1.Body1",
+                "member": "TabIndex"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "CalendarScreen.CalendarEventsGallery1.Description1.TabIndex"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarScreen.CalendarEventsGallery1.Description1.TabIndex"
+                }
+              ],
+              "properties": {
+                "module": "CalendarScreen",
+                "type": "CalendarScreen.CalendarEventsGallery1.Description1",
+                "member": "TabIndex"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "CalendarScreen.CalendarEventsGallery1.iconLocation1.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarScreen.CalendarEventsGallery1.iconLocation1.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "CalendarScreen",
+                "type": "CalendarScreen.CalendarEventsGallery1.iconLocation1",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "CalendarScreen.CalendarEventsGallery1.Subtitle2.TabIndex"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarScreen.CalendarEventsGallery1.Subtitle2.TabIndex"
+                }
+              ],
+              "properties": {
+                "module": "CalendarScreen",
+                "type": "CalendarScreen.CalendarEventsGallery1.Subtitle2",
+                "member": "TabIndex"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "CalendarScreen.iconPrevMonth1.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarScreen.iconPrevMonth1.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "CalendarScreen",
+                "type": "CalendarScreen.iconPrevMonth1",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "CalendarScreen.iconNextMonth1.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarScreen.iconNextMonth1.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "CalendarScreen",
+                "type": "CalendarScreen.iconNextMonth1",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "CalendarScreen.WeekdayGallery1.TabIndex"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarScreen.WeekdayGallery1.TabIndex"
+                }
+              ],
+              "properties": {
+                "module": "CalendarScreen",
+                "type": "CalendarScreen.WeekdayGallery1",
+                "member": "TabIndex"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "CalendarScreen.MonthDayGallery1.TabIndex"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CalendarScreen.MonthDayGallery1.TabIndex"
+                }
+              ],
+              "properties": {
+                "module": "CalendarScreen",
+                "type": "CalendarScreen.MonthDayGallery1",
+                "member": "TabIndex"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "graph.ButtonCanvas9.AccessibleLabel"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "graph.ButtonCanvas9.AccessibleLabel"
+                }
+              ],
+              "properties": {
+                "module": "graph",
+                "type": "graph.ButtonCanvas9",
+                "member": "AccessibleLabel"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.test"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.test"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "test"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.test1"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.test1"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "test1"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.test2"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.test2"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "test2"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.test3"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.test3"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "test3"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.testflow"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.testflow"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "testflow"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 3,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.colManagers"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.colManagers"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "colManagers"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.1"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.1"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "1"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.2"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.2"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "2"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.3"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.3"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "3"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.4"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.4"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "4"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.5"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.5"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "5"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.6"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.6"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "6"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.7"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.7"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "7"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.8"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.8"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "8"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.9"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.9"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "9"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.10"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.10"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "10"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.KuramaRelease2"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.KuramaRelease2"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "KuramaRelease2"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.Naruto"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.Naruto"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "Naruto"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.wp10236493-naruto-beast-mode-wallpapers"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.wp10236493-naruto-beast-mode-wallpapers"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "wp10236493-naruto-beast-mode-wallpapers"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.bcg"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.bcg"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "bcg"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.bleach"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.bleach"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "bleach"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.dragonball"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.dragonball"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "dragonball"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.Naurto"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.Naurto"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "Naurto"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        },
+        {
+          "ruleId": "app-UnusedMediaResources",
+          "ruleIndex": 4,
+          "message": {
+            "id": "issue"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "address": {
+                  "relativeAddress": 0,
+                  "fullyQualifiedName": "App.onepiece"
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.onepiece"
+                }
+              ],
+              "properties": {
+                "module": "App",
+                "type": "App",
+                "member": "onepiece"
+              }
+            }
+          ],
+          "properties": {
+            "level": "Medium"
+          }
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PowerApps app checker",
+          "fullName": "PowerApps app checker",
+          "version": "1.346",
+          "rules": [
+            {
+              "id": "acc-AccessibleLabelNeeded",
+              "messageStrings": {
+                "issue": {
+                  "text": "Missing accessible label"
+                }
+              },
+              "properties": {
+                "howToFix": [
+                  "Edit the accessible label property to describe the item."
+                ],
+                "whyFix": "If there's no accessible text, people who can’t see the screen won't understand what’s in images and controls.",
+                "level": "Medium",
+                "componentType": "app",
+                "primaryCategory": "accessibility"
+              }
+            },
+            {
+              "id": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+              "messageStrings": {
+                "issue": {
+                  "text": "Missing tab stop"
+                }
+              },
+              "properties": {
+                "howToFix": [
+                  "Set TabIndex to 0 or greater to ensure that interactive elements have a tab stop."
+                ],
+                "whyFix": "People who use the keyboard with your app will not be able to access this element without a tab stop.",
+                "level": "Medium",
+                "componentType": "app",
+                "primaryCategory": "accessibility"
+              }
+            },
+            {
+              "id": "acc-AlternativeInputNeeded",
+              "messageStrings": {
+                "issue": {
+                  "text": "Add another input method"
+                }
+              },
+              "properties": {
+                "howToFix": [
+                  "Add a text input in addition to the pen control for an accessible experience."
+                ],
+                "whyFix": "Some users can't use a pen and require another way to input information. Example: Typing in a signature.",
+                "level": "Low",
+                "componentType": "app",
+                "primaryCategory": "accessibility"
+              }
+            },
+            {
+              "id": "app-UnusedVariables",
+              "messageStrings": {
+                "issue": {
+                  "text": "Unused variable"
+                }
+              },
+              "properties": {
+                "howToFix": [
+                  "Remove the unused variable."
+                ],
+                "whyFix": "This variable is declared but is not referenced by any control, so it is not needed.",
+                "componentType": "app",
+                "primaryCategory": "performance",
+                "level": "Medium"
+              }
+            },
+            {
+              "id": "app-UnusedMediaResources",
+              "messageStrings": {
+                "issue": {
+                  "text": "Unused media files"
+                }
+              },
+              "properties": {
+                "howToFix": [
+                  "Remove the unused media file in the Media pane."
+                ],
+                "whyFix": "This media file is not referenced by any control formulas so it is not needed. Removing it will improve performance.",
+                "componentType": "app",
+                "primaryCategory": "performance",
+                "level": "Medium"
+              }
+            }
+          ]
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

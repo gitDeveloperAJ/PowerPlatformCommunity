@@ -1,0 +1,8 @@
+connectionreference:
+  '@connectionreferencelogicalname': cr7d6_sharedmsnweather_f339f
+  connectionreferencedisplayname: MSN Weather Community-f339f
+  connectorid: /providers/Microsoft.PowerApps/apis/shared_msnweather
+  iscustomizable: 1
+  promptingbehavior: 0
+  statecode: 0
+  statuscode: 1

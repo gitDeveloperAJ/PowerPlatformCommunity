@@ -1,0 +1,174 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  flashNews:
+    Properties:
+      Fill: =RGBA(149, 149, 149, 1)
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Slider1:
+          Control: Classic/Slider@2.1.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =60
+            Max: =720
+            Min: =60
+            ValueFill: =RGBA(0, 18, 107, 1)
+            Width: =358
+            X: =90
+            Y: =3
+      - Label3:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Text: ="HEIGHT:"
+            Width: =80
+            Y: =3
+      - Slider1_1:
+          Control: Classic/Slider@2.1.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =1366
+            Max: =1366
+            Min: =350
+            OnChange: "=UpdateContext(\r\n    {\r\n        lvar_htmlX:Self.Value\r\n            \r\n    }\r\n)"
+            ValueFill: =RGBA(0, 18, 107, 1)
+            Width: =358
+            X: =550
+            Y: =3
+      - Label3_1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Text: ="WIDTH:"
+            Width: =80
+            X: =464
+            Y: =3
+      - htmlMarquee:
+          Control: HtmlViewer@2.1.0
+          Properties:
+            Font: =Font.'Open Sans'
+            Height: =Slider1.Value
+            HtmlText: |+
+              ="<div style='width:100%; height:" & (Self.Height - 20) & "px; 
+                  display:flex; align-items:center; justify-content:center; 
+                  background:linear-gradient(135deg,#4facfe,#00f2fe); 
+                  border-radius:15px; padding:10px; box-sizing:border-box; 
+                  overflow:hidden;'>
+                <marquee behavior='scroll' direction='right' scrollamount='6' 
+                  style='font-family:Segoe UI, sans-serif; font-size:" & Min( RoundDown(Self.Height * 0.2, 0), 28 ) & "px; 
+                         font-weight:bold; color:#1a1a1a; white-space:nowrap;'>
+                  ⚡ FLASH NEWS: Power Apps now speaks in motion — scrolling text made easy 🔥<br>
+                  🎯 TIP OF THE DAY: Announcements made smarter with motion in Power Apps 💡
+                </marquee>
+              </div>"
+            Width: =Slider1_1.Value
+            Y: =189
+      - htmlSVG:
+          Control: HtmlViewer@2.1.0
+          Properties:
+            Font: =Font.'Open Sans'
+            Height: =102
+            HtmlText: |
+              ="<div style='width:100%; height:" & (Self.Height-20) & "px; display:flex; align-items:center; justify-content:flex-start;
+                   background:linear-gradient(135deg,#4facfe,#00f2fe); border-radius:15px; padding:10px; box-sizing:border-box; overflow:hidden;'>
+                <img alt='' style='width:auto; height:100%;' 
+                     src='data:image/svg+xml;utf8," &
+                     EncodeUrl(
+                       With(
+                         { Txt: "⚡ FLASH NEWS: Power Apps now speaks in motion — scrolling text made easy 🔥  🎯 TIP OF THE DAY: Announcements made smarter with motion in Power Apps 💡" },
+                         With(
+                           { CharCount: Len(Txt),
+                             SvgH: Self.Height,
+                             SvgW: Self.Width
+                           },
+                           With(
+                             { FontMultiplier: 1,   
+                               MaxFontPx: 36,
+                               CharWidthFactor: 0.6 },
+                             With(
+                               { FontSize: Min(RoundDown(SvgH * FontMultiplier, 0), MaxFontPx),
+                                 EstTextWidth: RoundDown(CharCount * (Min(RoundDown(SvgH * FontMultiplier, 0), MaxFontPx) * CharWidthFactor),0),
+                                 Gap: RoundDown(Max(SvgW * 0.5, Min(RoundDown(SvgH * FontMultiplier, 0), MaxFontPx) * 6),0),
+                                 DurationSecs: 15  
+                               },
+                               With(
+                                 { CanvasWidth: RoundDown(EstTextWidth + Gap + SvgW,0) },
+                                 "<svg xmlns='http://www.w3.org/2000/svg' width='" & Text(CanvasWidth) & "' height='" & Text(SvgH) & "' viewBox='0 0 " & Text(CanvasWidth) & " " & Text(SvgH) & "' preserveAspectRatio='xMidYMid meet'>
+                                    <g>
+                                      <text x='" & Text(SvgW) & "' y='50%' dominant-baseline='middle' text-anchor='start'
+                                            font-family='Segoe UI, sans-serif' font-weight='700' font-size='" & Text(FontSize) & "px' fill='#1a1a1a'>" & Txt & "</text>
+                                      <text x='" & Text(SvgW + EstTextWidth + Gap) & "' y='50%' dominant-baseline='middle' text-anchor='start'
+                                            font-family='Segoe UI, sans-serif' font-weight='700' font-size='" & Text(FontSize) & "px' fill='#1a1a1a'>" & Txt & "</text>
+
+                                      <animateTransform attributeName='transform' type='translate' from='0 0' to='-" & Text(EstTextWidth + Gap) & " 0' dur='" & Text(DurationSecs) & "s' repeatCount='indefinite'/>
+                                    </g>
+                                 </svg>"
+                               )
+                             )
+                           )
+                         )
+                       )
+                     )
+                     & "' />
+              </div>"
+            Width: =Slider1_1.Value
+            Y: =63
+      - HtmlTimer:
+          Control: HtmlViewer@2.1.0
+          Properties:
+            Font: =Font.'Open Sans'
+            Height: =Slider1.Value
+            HtmlText: |
+              ="<div style='width:100%; height:" & (Self.Height - 20) & "px; 
+                  display:flex; align-items:center; justify-content:center; 
+                  background:linear-gradient(135deg,#4facfe,#00f2fe); 
+                  border-radius:15px; padding:10px; box-sizing:border-box; 
+                  overflow:hidden;'>
+                ⚡ FLASH NEWS: Power Apps now speaks in motion — scrolling text made easy 🔥
+                🎯 TIP OF THE DAY: Announcements made smarter with motion in Power Apps 💡
+              </div>"
+            Width: =Slider1_1.Value
+            X: =lvar_htmlX
+            Y: =303
+      - TimerBreakingNews:
+          Control: Timer@2.1.0
+          Properties:
+            AutoStart: =true
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =ColorFade(Self.BorderColor, 70%)
+            DisabledColor: =ColorFade(Self.Fill, 90%)
+            DisabledFill: =ColorFade(Self.Fill, 70%)
+            Duration: =10
+            Fill: =RGBA(56, 96, 178, 1)
+            Font: =Font.'Open Sans'
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnTimerEnd: |-
+              =UpdateContext(
+                  {
+                      lvar_htmlX: If(
+                          lvar_htmlX < -HtmlTimer.Width,
+                          HtmlTimer.Width,
+                          lvar_htmlX - 4   // change this to increase speed
+                      )
+                  }
+              )
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Repeat: =true
+            X: =531
+            Y: =390

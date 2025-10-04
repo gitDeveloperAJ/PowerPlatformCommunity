@@ -1,0 +1,70 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Map:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Map1:
+          Control: Map@1.8.27
+          Properties:
+            CurrentLocation: =true
+            DefaultLatitude: =47.667
+            DefaultLocation: =true
+            DefaultLongitude: =-122.101
+            Height: =610
+            InfoCards: ='Map.InfoCards'.OnHover
+            Items: =Locations
+            MapStyle: ='Map.MapStyle'.Road
+            OnMapClick: =true
+            OnShapeCreated: |+
+              =Set(test,Self.Shapes_SelectedItems);
+              Set(test1,Self.Shapes_Selected);
+              Set(test2,Self.Bounds);
+              Set(test3,Self.SelectedShape)
+
+            ShapeDrawing: =true
+            ShapeEditingDeleting: =true
+            Width: =1294
+            X: =44
+            Y: =132
+          Children:
+            - Lon1:
+                Control: MapDataField@1.5.0
+                Variant: textualColumn
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Lon"
+                  FieldName: ="Lon"
+                  FieldType: ="n"
+                  Order: =3
+            - Lat1:
+                Control: MapDataField@1.5.0
+                Variant: textualColumn
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Lat"
+                  FieldName: ="Lat"
+                  FieldType: ="n"
+                  Order: =2
+            - Name1:
+                Control: MapDataField@1.5.0
+                Variant: textualColumn
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Name"
+                  FieldName: ="Name"
+                  FieldType: ="s"
+                  Order: =1
+      - ButtonCanvas3:
+          Control: Button@0.0.45
+          Properties:
+            OnSelect: "=\r\n// OnStart or Button\r\nClearCollect(\r\n    Locations,\r\n    {ID: 1, Name: \"Point A\", Lat: 47.667, Lon: -122.101},\r\n    {ID: 2, Name: \"Point B\", Lat: 47.669, Lon: -122.105},\r\n    {ID: 3, Name: \"Point C\", Lat: 47.665, Lon: -122.098}\r\n);\r\nClearCollect(\r\n    colDivisions,\r\n    AddColumns(\r\n        GroupBy(\r\n           \r\n                Locations,\r\n              \r\n            ID,     // replace with your actual Division column name\r\n            Wards       // nested table name, must be in quotes\r\n        ),\r\n        WardCount, CountRows(Wards)  // optional: count of wards\r\n    )\r\n)\r\n"
+            X: =40
+            Y: =40

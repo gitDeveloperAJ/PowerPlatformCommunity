@@ -1,0 +1,167 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Screen7:
+    Properties:
+      Fill: =RGBA(122, 138, 143, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    Children:
+      - Container6:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            DropShadow: =DropShadow.ExtraBold
+            Height: =600
+            Width: =800
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+          Children:
+            - btn_initPB:
+                Control: Button@0.0.45
+                Properties:
+                  OnSelect: |
+                    =
+
+                    // Define tasks
+                    ClearCollect(colTasks,
+                        {TaskID: 1, Title: "Introduction Module", Completed: false, TaskXP: 10},
+                        {TaskID: 2, Title: "Safety Training", Completed: false, TaskXP: 10},
+                        {TaskID: 3, Title: "Company Policies", Completed: false, TaskXP: 10},
+                        {TaskID: 4, Title: "Tools Setup", Completed: false, TaskXP: 10},
+                        {TaskID: 5, Title: "First Assignment", Completed: false, TaskXP: 10}
+                    );
+
+                    // Initialize variables
+                    Set(varXP, 0);
+                    Set(varProgressFill, 0);
+                    Set(varProgressWidth,0);
+                    Set(varBarWidth, Gallery2.Width-20);
+                  Text: ="init"
+                  X: =24
+                  Y: =12
+            - Gallery2:
+                Control: Gallery@2.15.0
+                Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+                Properties:
+                  BorderColor: =RGBA(245, 245, 245, 1)
+                  Height: =338
+                  Items: =colTasks
+                  TemplateSize: =61
+                  X: =100
+                  Y: =56
+                Children:
+                  - Separator2:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =8
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                  - Rectangle2:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Fill: =RGBA(0, 120, 212, 1)
+                        Height: =Parent.TemplateHeight - Separator2.Height
+                        OnSelect: =Select(Parent)
+                        Visible: =ThisItem.IsSelected
+                        Width: =4
+                  - ButtonCanvas2:
+                      Control: Button@0.0.45
+                      Properties:
+                        Icon: ="Checkmark"
+                        OnSelect: |-
+                          =Patch(colTasks, LookUp(colTasks, TaskID = ThisItem.TaskID), {Completed: true});
+                          Set(varXP, Sum(Filter(colTasks, Completed = true), TaskXP));
+                          Set(varProgressFill,
+                              varXP/Max(Sum(colTasks, TaskXP),1)
+                          );
+
+                          // Compute the filled width
+                          Set(varProgressWidth, Round(varProgressFill * varBarWidth, 0));
+                        Text: ="completed"
+                        Visible: =!ThisItem.Completed
+                        Width: =120
+                        X: =283
+                        Y: =18
+                  - TextCanvas3:
+                      Control: Text@0.0.51
+                      Properties:
+                        Align: ='TextCanvas.Align'.Start
+                        Height: =50
+                        Size: =18
+                        Text: =ThisItem.Title
+                        VerticalAlign: =VerticalAlign.Middle
+                        Weight: ='TextCanvas.Weight'.Bold
+                        Width: =265
+                        X: =18
+            - rec_BCG:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 0)
+                  BorderStyle: =BorderStyle.None
+                  BorderThickness: =2
+                  DisabledFill: =RGBA(214, 221, 224, 1)
+                  DisplayMode: =DisplayMode.Disabled
+                  Fill: =RGBA(0, 120, 212, 1)
+                  FocusedBorderThickness: =4
+                  Height: =60
+                  HoverFill: =RGBA(0, 120, 212, 1)
+                  PressedFill: =RGBA(0, 120, 212, 1)
+                  Width: =Gallery2.Width
+                  X: =Gallery2.X
+                  Y: =505
+            - ModernProgress:
+                Control: Progress@1.1.34
+                Properties:
+                  Height: =43
+                  Max: =Sum(colTasks, TaskXP)
+                  ProgressColor: ='Progress.ProgressColor'.Success
+                  Shape: ='Progress.Shape'.Square
+                  Thickness: ='Progress.Thickness'.Large
+                  Value: =varXP
+                  Width: =Gallery2.Width
+                  X: =Gallery2.X
+                  Y: =444
+            - rec_Fill:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 0)
+                  BorderStyle: =BorderStyle.None
+                  BorderThickness: =2
+                  DisabledFill: =RGBA(161, 159, 157, 1)
+                  DisplayMode: =DisplayMode.View
+                  Fill: =RGBA(255, 191, 0, 1)
+                  FocusedBorderThickness: =4
+                  Height: =60
+                  HoverFill: =RGBA(0, 120, 212, 1)
+                  PressedFill: =RGBA(0, 120, 212, 1)
+                  Width: =rec_BCG.Width* varProgressFill
+                  X: =Gallery2.X
+                  Y: =505
+            - html_Progress:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  DisabledBorderColor: =RGBA(161, 159, 157, 1)
+                  Font: =Font.'Segoe UI'
+                  Height: =50
+                  HtmlText: |+
+                    ="<table cellspacing='0' cellpadding='0' style='width:" & varBarWidth & "px; height:40px; border-radius:20px; background-color:#e0e0e0; border-collapse:collapse;'>
+                      <tr>
+                        <td style='width:" & varProgressWidth & "px; background-color:#0078d4; border-radius:20px;'></td>
+                        <td style='width:" & (varBarWidth - varProgressWidth) & "px;'></td>
+                      </tr>
+                    </table>
+                    <div style='width:" & varBarWidth & "px; text-align:center; font-weight:bold; margin-top:-30px; color:white;'>" 
+                    & Round(varProgressFill*100,0) & "%</div>"
+                  Width: =640
+                  X: =100
+                  Y: =405

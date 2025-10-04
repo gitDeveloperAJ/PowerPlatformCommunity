@@ -1,0 +1,54 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "9cf1eb49-3c89-4a41-a3e3-d653bb3d0439"
+          }
+        }
+      },
+      "actions": {
+        "Run_a_Child_Flow": {
+          "type": "Workflow",
+          "inputs": {
+            "host": {
+              "workflowReferenceName": "782e7ab0-825a-f011-bec1-7c1e5219079a"
+            },
+            "retryPolicy": {
+              "type": "none"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "6a093702-96e9-4cb2-ae17-92f89c86d7c4"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,8 @@
+connectionreference:
+  '@connectionreferencelogicalname': cr7d6_sharedtranslatorv2_80c36
+  connectionreferencedisplayname: Microsoft Translator V2 Community-80c36
+  connectorid: /providers/Microsoft.PowerApps/apis/shared_translatorv2
+  iscustomizable: 1
+  promptingbehavior: 0
+  statecode: 0
+  statuscode: 1

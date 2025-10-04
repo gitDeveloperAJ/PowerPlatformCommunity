@@ -1,0 +1,11 @@
+{
+  "Components": [
+    {
+      "Name": "cmp_PopUp",
+      "TemplateName": "8ad6b01b99344d9fb61dacbb99ac9c57",
+      "Description": "",
+      "AllowCustomization": true,
+      "AllowAccessToGlobals": false
+    }
+  ]
+}
