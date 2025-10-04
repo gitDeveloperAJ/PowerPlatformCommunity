@@ -1,0 +1,84 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_rss": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "cr7d6_sharedrss_fe28b"
+        },
+        "api": {
+          "name": "shared_rss"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "ebd2cd11-43c4-4898-8ded-24807038fc79"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Compose": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "5701e557-c1f7-4bfd-9369-c2e5f7bb2ca3"
+          },
+          "type": "Compose",
+          "inputs": "https://rss.app/feed/sFEDEWeKIYQm2GEN"
+        },
+        "List_all_RSS_feed_items": {
+          "runAfter": {
+            "Compose": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ffa0f30c-21e5-478f-bac6-bd5ac9711d85"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_rss",
+              "operationId": "ListFeedItems",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_rss"
+            },
+            "parameters": {
+              "feedUrl": "@outputs('Compose')",
+              "since": "2025-07-04 09:36:21Z",
+              "sinceProperty": "PublishDate"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

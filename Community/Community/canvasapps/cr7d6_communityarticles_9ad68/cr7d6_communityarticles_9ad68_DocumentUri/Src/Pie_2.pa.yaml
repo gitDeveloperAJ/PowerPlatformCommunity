@@ -1,0 +1,217 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Pie_2:
+    Properties:
+      Fill: =RGBA(122, 138, 143, 1)
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - btn_initPie_2:
+          Control: Button@0.0.45
+          Properties:
+            OnSelect: |+
+              =UpdateContext({lvar_SelectedAnime:Blank()});
+              ClearCollect(
+                col_AnimeWatchLogs,
+                ForAll(
+                  Sequence(500),
+                  {
+                    User: "U" & Text(Value),
+                    Anime: Switch(
+                      RandBetween(1,10),
+                      1,"One Piece", 2,"Naruto", 3,"Attack on Titan", 4,"Demon Slayer", 
+                      5,"Jujutsu Kaisen", 6,"Dragon Ball", 7,"Bleach", 
+                      8,"My Hero Academia", 9,"Fullmetal Alchemist", 10,"Death Note"
+                    ),
+                    EpisodesWatched: RandBetween(1, 50)
+                  }
+                )
+              );
+              ClearCollect(
+                col_AnimeBarStats,
+                AddColumns(
+                  GroupBy(col_AnimeWatchLogs, Anime, AnimeGroup),
+                  UniqueViewers, CountRows(AnimeGroup),
+                  TotalWatchHours, Sum(AnimeGroup, EpisodesWatched) * 0.4,
+                  AvgHoursPerViewer, Round(
+                      If(CountRows(AnimeGroup)>0, Sum(AnimeGroup, EpisodesWatched)*0.4 / CountRows(AnimeGroup), 0),
+                      2
+                  )
+                )
+              );
+            Text: ="init"
+      - Container4_2:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Height: =Parent.Height-Self.Y
+            LayoutDirection: =LayoutDirection.Horizontal
+            Width: =Parent.Width
+            Y: =btn_initPie_2.Height
+          Children:
+            - Container5_2:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.Bold
+                  FillPortions: =1.8
+                  LayoutDirection: =LayoutDirection.Vertical
+                Children:
+                  - Title5:
+                      Control: Label@2.5.1
+                      Group: CompositeLineChart1
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(184, 0, 0, 1)
+                        Font: =Font.'Lato Black'
+                        Height: =25
+                        Size: =20
+                        Text: ="Anime Stats"
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =40
+                  - LineChart1:
+                      Control: LineChart@2.3.0
+                      Group: CompositeLineChart1
+                      Properties:
+                        Color: =RGBA(255, 255, 255, 1)
+                        FillPortions: =1
+                        ItemColorSet: |+
+                          =[RGBA(33, 150, 243, 1), RGBA(255, 193, 7, 1),RGBA(15, 10, 100, 1)]
+                        Items: =col_AnimeBarStats
+                        Items.Labels: =Anime
+                        Items.Series1: =AvgHoursPerViewer
+                        Items.Series2: =TotalWatchHours
+                        Items.Series3: =UniqueViewers
+                        Items.Series4: =UniqueViewers
+                        Items.Series5: =UniqueViewers
+                        Items.Series6: =UniqueViewers
+                        Items.Series7: =UniqueViewers
+                        Items.Series8: =UniqueViewers
+                        Items.Series9: =UniqueViewers
+                        NumberOfSeries: =3
+                        OnSelect: =UpdateContext({lvar_SelectedAnime:Self.SelectedItems});
+                        Width: =Parent.Width
+                        X: =40
+                        Y: =70
+                  - Legend3:
+                      Control: Legend@2.1.0
+                      Group: CompositeLineChart1
+                      Properties:
+                        Color: =RGBA(255, 255, 255, 1)
+                        Font: =Font.'Open Sans'
+                        Height: =50
+                        ItemColorSet: =LineChart1.ItemColorSet
+                        Items: =LineChart1.SeriesLabels
+                        Items.Value: =Value
+                        Width: =Parent.Width
+                        X: =80
+                        Y: =480
+            - Gallery2_2:
+                Control: Gallery@2.15.0
+                Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+                Properties:
+                  AlignInContainer: =AlignInContainer.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Items: =col_AnimeBarStats
+                  TemplateSize: =50
+                Children:
+                  - Title3_2:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        Font: =Font.'Lato Black'
+                        FontWeight: =FontWeight.Bold
+                        Height: =50
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =ThisItem.Anime
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.Width/2
+                        X: =10
+                  - Subtitle1_4:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =If(ThisItem.UniqueViewers in lvar_SelectedAnime.Value,  Color.Red,Color.White)
+                        Font: =Font.'Lato Black'
+                        FontWeight: =FontWeight.Bold
+                        Height: =50
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =ThisItem.UniqueViewers
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.Width/3
+                        X: =Parent.Width/3
+                  - Subtitle1_5:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =If(ThisItem.TotalWatchHours in lvar_SelectedAnime.Value,  Color.Red,Color.White)
+                        Font: =Font.'Lato Black'
+                        FontWeight: =FontWeight.Bold
+                        Height: =50
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =ThisItem.TotalWatchHours&"hrs"
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.Width/6
+                        X: =Parent.Width/3*2
+                  - Subtitle1_6:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =If(ThisItem.AvgHoursPerViewer in lvar_SelectedAnime.Value,  Color.Red,Color.White)
+                        Font: =Font.'Lato Black'
+                        FontWeight: =FontWeight.Bold
+                        Height: =50
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =ThisItem.AvgHoursPerViewer&"hrs"
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.Width/6
+                        X: =Parent.Width/3*2+Parent.Width/6
+                  - Separator1_2:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =8
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+      - ButtonCanvas1_1:
+          Control: Button@0.0.45
+          Properties:
+            OnSelect: =Clear(col_AnimeBarStats);Clear(col_AnimeWatchLogs)
+            Visible: =false
+            X: =40
+            Y: =40

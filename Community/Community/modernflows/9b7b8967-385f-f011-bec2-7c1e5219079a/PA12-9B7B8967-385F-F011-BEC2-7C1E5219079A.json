@@ -1,0 +1,64 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_flowmanagement": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cr7d6_sharedflowmanagement_ca592"
+        },
+        "api": {
+          "name": "shared_flowmanagement"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Week",
+            "interval": 1
+          },
+          "metadata": {
+            "operationMetadataId": "53fd03d7-8551-4ab7-bb7c-6773545a9932"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "List_Callback_URL": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "0a19c73b-0e88-464c-bf2b-1190e8ab9d17"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_flowmanagement",
+              "operationId": "ListCallbackUrl",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement"
+            },
+            "parameters": {
+              "environmentName": "a964f425-9f39-e58d-8be1-9f83ac3e3b0d",
+              "flowName": "82c0f85d-d2c0-4b9f-830c-99e3dd9f1dec"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,120 @@
+MissingDependencies:
+  MissingDependency:
+  - Required:
+      '@type': 1
+      '@schemaName': cr7d6_child1
+      '@displayName': child1
+      '@solution': Active
+    Dependent:
+      '@type': 29
+      '@displayName': unbound
+      '@id': '{a4a4a316-a859-f011-bec1-7c1e5219079a}'
+  - Required:
+      '@type': 1
+      '@schemaName': cr7d6_parenttable
+      '@displayName': parenttable
+      '@solution': Active
+    Dependent:
+      '@type': 29
+      '@displayName': unbound
+      '@id': '{a4a4a316-a859-f011-bec1-7c1e5219079a}'
+  - Required:
+      '@type': 2
+      '@schemaName': cr7d6_child1id
+      '@displayName': child1
+      '@parentSchemaName': cr7d6_child1
+      '@parentDisplayName': child1
+      '@solution': Active
+    Dependent:
+      '@type': 29
+      '@displayName': unbound
+      '@id': '{a4a4a316-a859-f011-bec1-7c1e5219079a}'
+  - Required:
+      '@type': 2
+      '@schemaName': cr7d6_child1parent
+      '@displayName': child1parent
+      '@parentSchemaName': cr7d6_child1
+      '@parentDisplayName': child1
+      '@solution': Active
+    Dependent:
+      '@type': 29
+      '@displayName': unbound
+      '@id': '{a4a4a316-a859-f011-bec1-7c1e5219079a}'
+  - Required:
+      '@type': 2
+      '@schemaName': cr7d6_name
+      '@displayName': name
+      '@parentSchemaName': cr7d6_child1
+      '@parentDisplayName': child1
+      '@solution': Active
+    Dependent:
+      '@type': 29
+      '@displayName': unbound
+      '@id': '{a4a4a316-a859-f011-bec1-7c1e5219079a}'
+  - Required:
+      '@type': 2
+      '@schemaName': cr7d6_name
+      '@displayName': name
+      '@parentSchemaName': cr7d6_parenttable
+      '@parentDisplayName': parenttable
+      '@solution': Active
+    Dependent:
+      '@type': 29
+      '@displayName': unbound
+      '@id': '{a4a4a316-a859-f011-bec1-7c1e5219079a}'
+  - Required:
+      '@type': 2
+      '@schemaName': cr7d6_parenttableid
+      '@displayName': parenttable
+      '@parentSchemaName': cr7d6_parenttable
+      '@parentDisplayName': parenttable
+      '@solution': Active
+    Dependent:
+      '@type': 29
+      '@displayName': unbound
+      '@id': '{a4a4a316-a859-f011-bec1-7c1e5219079a}'
+  - Required:
+      '@type': connectionreference
+      '@displayName': cr7d6_cref_dataverse
+      '@solution': Active
+      '@id.connectionreferencelogicalname': cr7d6_cref_dataverse
+    Dependent:
+      '@type': 29
+      '@displayName': SentimentAnalysis
+      '@id': '{f4aee270-375b-f011-bec1-7c1e5219079a}'
+  - Required:
+      '@type': connectionreference
+      '@displayName': cr7d6_cref_dataverse
+      '@solution': Active
+      '@id.connectionreferencelogicalname': cr7d6_cref_dataverse
+    Dependent:
+      '@type': 29
+      '@displayName': UnBound
+      '@id': '{fdbf121d-a959-f011-bec1-7c1e5219079a}'
+  - Required:
+      '@type': connectionreference
+      '@displayName': new_sharedonedriveforbusiness_16590
+      '@solution': Active
+      '@id.connectionreferencelogicalname': new_sharedonedriveforbusiness_16590
+    Dependent:
+      '@type': 29
+      '@displayName': word doc
+      '@id': '{e9372af8-a25d-f011-bec1-7c1e5219079a}'
+  - Required:
+      '@type': connectionreference
+      '@displayName': new_sharedwordonlinebusiness_9063b
+      '@solution': Active
+      '@id.connectionreferencelogicalname': new_sharedwordonlinebusiness_9063b
+    Dependent:
+      '@type': 29
+      '@displayName': word doc
+      '@id': '{e9372af8-a25d-f011-bec1-7c1e5219079a}'
+  - Required:
+      '@type': connectionreference
+      '@displayName': venaauto_Cref_Travel_Outlook
+      '@solution': Active
+      '@id.connectionreferencelogicalname': venaauto_Cref_Travel_Outlook
+    Dependent:
+      '@type': 29
+      '@displayName': outlookEmail
+      '@id': '{e39a460b-9961-f011-bec1-7c1e5219079a}'

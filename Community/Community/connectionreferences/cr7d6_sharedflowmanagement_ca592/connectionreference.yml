@@ -1,0 +1,8 @@
+connectionreference:
+  '@connectionreferencelogicalname': cr7d6_sharedflowmanagement_ca592
+  connectionreferencedisplayname: Power Automate Management Community-ca592
+  connectorid: /providers/Microsoft.PowerApps/apis/shared_flowmanagement
+  iscustomizable: 1
+  promptingbehavior: 0
+  statecode: 0
+  statuscode: 1

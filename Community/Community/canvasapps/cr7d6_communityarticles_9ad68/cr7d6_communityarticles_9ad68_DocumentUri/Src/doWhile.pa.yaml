@@ -1,0 +1,276 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  doWhile:
+    Properties:
+      BackgroundImage: =bcg
+      ImagePosition: =ImagePosition.Fill
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Container1:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Height: =676
+            LayoutDirection: =LayoutDirection.Horizontal
+            Visible: =!gvar_Match
+            Width: =1366
+            Y: =88
+          Children:
+            - Container2:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.ExtraBold
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutJustifyContent: =LayoutJustifyContent.Center
+                  LayoutMinHeight: =Parent.Height-10
+                  RadiusBottomLeft: =20
+                  RadiusBottomRight: =20
+                  RadiusTopLeft: =20
+                  RadiusTopRight: =20
+                Children:
+                  - Image1:
+                      Control: Image@2.2.3
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        FillPortions: =1
+                        Image: =Naruto
+                        ImagePosition: =ImagePosition.Fill
+                        RadiusBottomLeft: =40
+                        RadiusBottomRight: =40
+                        RadiusTopLeft: =40
+                        RadiusTopRight: =40
+                        Width: =Parent.Width
+                  - Label1:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 13, 75, 1)
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Semibold
+                        Size: =18
+                        Text: ="NARUTO"
+                        Width: =Parent.Width
+            - Container2_1:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  DropShadow: =DropShadow.ExtraBold
+                  Fill: =RGBA(255, 255, 255, 0)
+                  LayoutAlignItems: =LayoutAlignItems.Center
+                  LayoutDirection: =LayoutDirection.Vertical
+                  LayoutJustifyContent: =LayoutJustifyContent.Center
+                  LayoutMinHeight: =Parent.Height-10
+                  RadiusBottomLeft: =20
+                  RadiusBottomRight: =20
+                  RadiusTopLeft: =20
+                  RadiusTopRight: =20
+                Children:
+                  - Image1_1:
+                      Control: Image@2.2.3
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =1
+                        Image: =Switch( gvar_CurrentBeastID,1,'1',2,'2',3,'3',4,'4',5,'5',6,'6',7,'7',8,'8',9,'9',10,'10')
+                        ImagePosition: =ImagePosition.Fill
+                        RadiusBottomLeft: =40
+                        RadiusBottomRight: =40
+                        RadiusTopLeft: =40
+                        RadiusTopRight: =40
+                        Width: =Parent.Width
+                  - Label1_1:
+                      Control: Label@2.5.1
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 13, 75, 1)
+                        Font: =Font.Verdana
+                        FontWeight: =FontWeight.Semibold
+                        Size: =18
+                        Text: =Upper( LookUp(TailedBeastsCollection,ID=gvar_CurrentBeastID,Title))
+                        Width: =Parent.Width
+      - con_DoWhile:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.ExtraBold
+            Height: =72
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Horizontal
+            LayoutGap: =5
+            Visible: =!gvar_Match
+            Width: =Parent.Width-Self.X
+          Children:
+            - btn_CodeBeforeDO:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =ColorFade(Self.Fill, -15%)
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                  Fill: =RGBA(56, 96, 178, 1)
+                  FillPortions: =1
+                  Font: =Font.'Open Sans'
+                  Height: =Parent.Height-10
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                  OnSelect: |-
+                    =ClearCollect(
+                        TailedBeastsCollection,
+                        { ID: 1, Title: "Shukaku" }, // One-Tail
+                        { ID: 2, Title: "Matatabi" }, // Two-Tails
+                        { ID: 3, Title: "Isobu" }, // Three-Tails
+                        { ID: 4, Title: "Son Goku" }, // Four-Tails
+                        { ID: 5, Title: "Kokuo" }, // Five-Tails
+                        { ID: 6, Title: "Saiken" }, // Six-Tails
+                        { ID: 7, Title: "Chomei" }, // Seven-Tails
+                        { ID: 8, Title: "Gyuki" }, // Eight-Tails
+                        { ID: 9, Title: "Kurama" },  // Nine-Tails
+                        { ID: 10, Title: "Jubi" }  // Ten-Tails
+                    );
+                    Set(gvar_User,{Jinchuriki:"Naruto",Beast:9});//Naruto is Jinchuriki of Kurama
+                    Set(gvar_CurrentBeastID,0);
+                    //Do loop starting code
+                    Set(gvar_TimerWhileOn,false);
+                    Reset(timer_WhileCondition);
+                    Select(btn_Do)
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  Text: ="Before"
+                  X: =212
+                  Y: =116
+            - btn_Do:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =ColorFade(Self.Fill, -15%)
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                  Fill: =RGBA(56, 96, 178, 1)
+                  FillPortions: =1
+                  Font: =Font.'Open Sans'
+                  Height: =Parent.Height-10
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                  OnSelect: |-
+                    =//here you can write Functionalities
+                    //Coding terms code you will need in the DO loop
+
+                    Set(gvar_CurrentBeastID,RandBetween(1,10));
+                    Set(gvar_TimerWhileOn,true)
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  Text: ="DoLoop"
+                  X: =212
+                  Y: =220
+            - timer_WhileCondition:
+                Control: Timer@2.1.0
+                Properties:
+                  BorderColor: =ColorFade(Self.Fill, -15%)
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =ColorFade(Self.BorderColor, 70%)
+                  DisabledColor: =ColorFade(Self.Fill, 90%)
+                  DisabledFill: =ColorFade(Self.Fill, 70%)
+                  Duration: =2000
+                  Fill: =RGBA(56, 96, 178, 1)
+                  FillPortions: =1
+                  Font: =Font.'Open Sans'
+                  Height: =Parent.Height-10
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                  OnTimerEnd: |+
+                    =Set(gvar_TimerWhileOn,false);
+                    //Write your while condition
+                    //in my case i need kurama beast ID 9
+                    If(gvar_CurrentBeastID=gvar_User.Beast,
+                    //Your condition met
+                    //Steps after Do loop
+                    Select(btn_CodeAfterDO)
+                    ,
+                    //Condition not satisfied Run code Again
+                    Select(btn_Do))
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  Start: =gvar_TimerWhileOn
+                  X: =212
+                  Y: =348
+            - btn_CodeAfterDO:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =ColorFade(Self.Fill, -15%)
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                  Fill: =RGBA(56, 96, 178, 1)
+                  FillPortions: =1
+                  Font: =Font.'Open Sans'
+                  Height: =Parent.Height-10
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                  OnSelect: |-
+                    =Set(gvar_Match,true) ;
+                    Notify("Hurray! Naruto found Kurama")
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  Text: ="After"
+                  X: =212
+                  Y: =116
+      - Container3:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            DropShadow: =DropShadow.ExtraBold
+            Fill: =RGBA(241, 244, 249, 0)
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            Visible: =gvar_Match
+            Width: =Parent.Width
+          Children:
+            - Image4:
+                Control: Image@2.2.3
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  FillPortions: =1
+                  Image: ='wp10236493-naruto-beast-mode-wallpapers'
+                  Width: =Parent.Width
+      - Timer1:
+          Control: Timer@2.1.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =ColorFade(Self.BorderColor, 70%)
+            DisabledColor: =ColorFade(Self.Fill, 90%)
+            DisabledFill: =ColorFade(Self.Fill, 70%)
+            Duration: =10000
+            Fill: =RGBA(56, 96, 178, 1)
+            Font: =Font.'Open Sans'
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnTimerEnd: |-
+              =Set(gvar_CurrentBeastID,0);
+              Set(gvar_TimerWhileOn,false);
+              Reset(timer_WhileCondition);
+              Set(gvar_Match,false)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Start: =gvar_Match
+            Visible: =false
+            X: =46
+            Y: =16

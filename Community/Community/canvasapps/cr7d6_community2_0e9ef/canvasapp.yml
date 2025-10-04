@@ -1,0 +1,41 @@
+CanvasApp:
+  Name: cr7d6_community2_0e9ef
+  AppVersion: 2025-09-30T14:34:52.0000000Z
+  Status: Ready
+  CreatedByClientVersion: 3.25093.16.0
+  MinClientVersion: 3.25093.16.0
+  Tags: '{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","showStatusBar":"false","publisherVersion":"3.25093.16","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false"}'
+  IsCdsUpgraded: 0
+  GalleryItemId:
+    '@xsi:nil': true
+    '@xmlns:xsi': http://www.w3.org/2001/XMLSchema-instance
+  BackgroundColor: RGBA(0,176,240,1)
+  DisplayName: Community2
+  Description:
+    '@xsi:nil': true
+    '@xmlns:xsi': http://www.w3.org/2001/XMLSchema-instance
+  CommitMessage:
+    '@xsi:nil': true
+    '@xmlns:xsi': http://www.w3.org/2001/XMLSchema-instance
+  Publisher:
+    '@xsi:nil': true
+    '@xmlns:xsi': http://www.w3.org/2001/XMLSchema-instance
+  AuthorizationReferences: '[]'
+  ConnectionReferences: '{}'
+  DatabaseReferences: '{}'
+  AppComponents: '[]'
+  AppComponentDependencies: '[]'
+  CanConsumeAppPass: 1
+  CanvasAppType: 0
+  BypassConsent: 0
+  AdminControlBypassConsent: 0
+  EmbeddedApp:
+    '@xsi:nil': true
+    '@xmlns:xsi': http://www.w3.org/2001/XMLSchema-instance
+  IntroducedVersion: 1.0
+  CdsDependencies: '{"cdsdependencies":[]}'
+  IsCustomizable: 1
+  BackgroundImageUri: /canvasapps/cr7d6_community2_0e9ef/cr7d6_community2_0e9ef_BackgroundImageUri
+  DocumentUri: /canvasapps/cr7d6_community2_0e9ef/cr7d6_community2_0e9ef_DocumentUri.msapp
+  AdditionalUris:
+    AdditionalUri: /canvasapps/cr7d6_community2_0e9ef/cr7d6_community2_0e9ef_AdditionalUris0_identity.json

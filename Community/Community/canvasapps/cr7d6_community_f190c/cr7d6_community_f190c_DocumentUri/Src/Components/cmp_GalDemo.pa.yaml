@@ -1,0 +1,195 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+ComponentDefinitions:
+  cmp_GalDemo:
+    DefinitionType: CanvasComponent
+    CustomProperties:
+      onButtonClick:
+        PropertyKind: Event
+        DisplayName: onButtonClick
+        Description: A custom property
+        ReturnType: None
+        Default: =
+        Parameters:
+          - SelectedRecord:
+              Description: record to pass it should match the schema check property from component
+              DataType: Record
+              Default: =First(col_galitems)
+          - Action:
+              Description: if you have two button edit and view can be determined from this
+              IsOptional: true
+              DataType: Text
+              Default: ="Text"
+    Children:
+      - Container1:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Height: =Parent.Height
+            Width: =Parent.Width
+          Children:
+            - Gallery1:
+                Control: Gallery@2.15.0
+                Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Items: =col_galitems
+                  X: =40
+                  Y: =65
+                Children:
+                  - Image1:
+                      Control: Image@2.2.3
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Height: =72
+                        OnSelect: =Select(Parent)
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =72
+                        X: =16
+                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                  - Title1:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(50, 49, 48, 1)
+                        Font: =Font.'Open Sans'
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =ThisItem.'Action Details'
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.TemplateWidth - 173
+                        X: =103
+                        Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle1.Size * 1.8)) / 2
+                  - Subtitle1:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Font: =Font.'Open Sans'
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =ThisItem.'Comments from Person to Action'
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1.Width
+                        X: =Title1.X
+                        Y: =Title1.Y + Title1.Height
+                  - NextArrow1:
+                      Control: Classic/Icon@2.5.0
+                      Properties:
+                        AccessibleLabel: =Self.Tooltip
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(166, 166, 166, 1)
+                        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                        DisabledColor: =RGBA(119, 119, 119, 1)
+                        Height: =50
+                        Icon: =Icon.Edit
+                        OnSelect: =cmp_GalDemo.onButtonClick(ThisItem,"edit")
+                        PaddingBottom: =16
+                        PaddingLeft: =16
+                        PaddingRight: =16
+                        PaddingTop: =16
+                        Tooltip: ="View item details"
+                        Width: =50
+                        X: =Parent.TemplateWidth - Self.Width - 12
+                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                  - Separator1:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =8
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                  - Rectangle1:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(0, 18, 107, 1)
+                        Height: =Parent.TemplateHeight - Separator1.Height
+                        OnSelect: =Select(Parent)
+                        Visible: =ThisItem.IsSelected
+                        Width: =4
+                  - NextArrow1_1:
+                      Control: Classic/Icon@2.5.0
+                      Properties:
+                        AccessibleLabel: =Self.Tooltip
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(166, 166, 166, 1)
+                        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+                        DisabledColor: =RGBA(119, 119, 119, 1)
+                        Height: =50
+                        Icon: =Icon.View
+                        OnSelect: =cmp_GalDemo.onButtonClick(ThisItem,"view")
+                        PaddingBottom: =16
+                        PaddingLeft: =16
+                        PaddingRight: =16
+                        PaddingTop: =16
+                        Tooltip: ="View item details"
+                        Width: =50
+                        X: =520
+                        Y: =28
+            - ButtonCanvas5:
+                Control: Button@0.0.45
+                Properties:
+                  Height: =36
+                  OnSelect: |+
+                    =ClearCollect(
+                        col_galitems,
+                        {
+                            'Action Identifier': "AI-1025",
+                            'Lookup To Parent Table Record Reference': { Id: 1, Value: "CA-1320" },
+                            'Lookup To Parent Table Claim Number': { Id: 1, Value: "P-123789" },
+                            'Dynamic To Be Completed By Person': { 'Full Name': "Joe Bloggs", 'Primary Email': "joe@example.com" },
+                            'To Be Actioned By Date': Today(),
+                            Action: "Follow up with person",
+                            'Action Details': "Detailed steps to follow...",
+                            'Action Status': { Value: "Pending" },
+                            'Comments from Person to Action': "Initial review done"
+                        },
+                        {
+                            'Action Identifier': "AI-1026",
+                            'Lookup To Parent Table Record Reference': { Id: 2, Value: "CA-1321" },
+                            'Lookup To Parent Table Claim Number': { Id: 2, Value: "P-456789" },
+                            'Dynamic To Be Completed By Person': { 'Full Name': "Jane Smith", 'Primary Email': "jane@example.com" },
+                            'To Be Actioned By Date': Today() + 3,
+                            Action: "Send reminder email",
+                            'Action Details': "Follow up with supporting documents...",
+                            'Action Status': { Value: "In Progress" },
+                            'Comments from Person to Action': "Awaiting additional info"
+                        },
+                        {
+                            'Action Identifier': "AI-1027",
+                            'Lookup To Parent Table Record Reference': { Id: 3, Value: "CA-1322" },
+                            'Lookup To Parent Table Claim Number': { Id: 3, Value: "P-789123" },
+                            'Dynamic To Be Completed By Person': { 'Full Name': "Michael Green", 'Primary Email': "mike@example.com" },
+                            'To Be Actioned By Date': Today() + 7,
+                            Action: "Schedule meeting",
+                            'Action Details': "Arrange discussion with stakeholders...",
+                            'Action Status': { Value: "Completed" },
+                            'Comments from Person to Action': "Meeting scheduled successfully"
+                        }
+                    )
+                  Text: ="Test Button"
+                  Width: =151
+                  Y: =12

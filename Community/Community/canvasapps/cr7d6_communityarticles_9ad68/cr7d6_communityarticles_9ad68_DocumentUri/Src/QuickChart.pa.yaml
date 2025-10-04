@@ -1,0 +1,88 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  QuickChart:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Image8_1:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =654
+            Image: |-
+              ="https://quickchart.io/chart?c="&EncodeUrl("{
+                'type': 'bar',
+                'data': {
+                  'labels': [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July'
+                  ],
+                  'datasets': [
+                    {
+                      'type': 'line',
+                      'label': 'Dataset 1',
+                      'borderColor': 'rgb(54, 162, 235)',
+                      'borderWidth': 2,
+                      'fill': false,
+                      'data': "&lvar_d1&"
+                    },
+                    {
+                      'type': 'bar',
+                      'label': 'Dataset 2',
+                      'backgroundColor': 'rgb(255, 99, 132)',
+                      'data':"&lvar_d2&",
+                      'borderColor': 'white',
+                      'borderWidth': 2
+                    },
+                    {
+                      'type': 'bar',
+                      'label': 'Dataset 3',
+                      'backgroundColor': 'rgb(75, 192, 192)',
+                      'data':"&lvar_d3&"
+                    }
+                  ]
+                },
+                'options': {
+                  'responsive': true,
+                  'title': {
+                    'display': true,
+                    'text': 'Chart.js Combo Bar Line Chart'
+                  },
+                  'tooltips': {
+                    'mode': 'index',
+                    'intersect': true
+                  }
+                }
+              }")
+            Width: =1286
+            X: =59
+            Y: =89
+      - ButtonCanvas2:
+          Control: Button@0.0.45
+          Properties:
+            OnSelect: |
+              =ClearCollect(col_d1, ForAll(Sequence(7), RandBetween(-100, 100)));
+              ClearCollect(col_d2, ForAll(Sequence(7), RandBetween(-100, 100)));
+              ClearCollect(col_d3, ForAll(Sequence(7), RandBetween(-100, 100)));
+
+              UpdateContext(
+                  {
+                      lvar_d1: "[" & Left(Concat(col_d1, Value & ","), Len(Concat(col_d1, Value & ",")) - 1) & "]",
+                      lvar_d2: "[" & Left(Concat(col_d2, Value & ","), Len(Concat(col_d2, Value & ",")) - 1) & "]",
+                      lvar_d3: "[" & Left(Concat(col_d3, Value & ","), Len(Concat(col_d3, Value & ",")) - 1) & "]"
+                  }
+              )
+            X: =40
+            Y: =40

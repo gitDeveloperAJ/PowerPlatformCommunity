@@ -1,0 +1,28 @@
+Workflow:
+  '@WorkflowId': '{941612b2-655e-f011-bec1-7c1e5219079a}'
+  '@Name': RSS
+  JsonFileName: /modernflows/941612b2-655e-f011-bec1-7c1e5219079a/RSS-941612B2-655E-F011-BEC1-7C1E5219079A.json
+  Type: 1
+  Subprocess: 0
+  Category: 5
+  Mode: 0
+  Scope: 4
+  OnDemand: 0
+  TriggerOnCreate: 0
+  TriggerOnDelete: 0
+  AsyncAutodelete: 0
+  SyncWorkflowLogOnFailure: 0
+  StateCode: 1
+  StatusCode: 2
+  RunAs: 1
+  IsTransacted: 1
+  IntroducedVersion: 1.0.0.0
+  IsCustomizable: 1
+  BusinessProcessType: 0
+  IsCustomProcessingStepAllowedForOtherPublishers: 1
+  ModernFlowType: 0
+  PrimaryEntity: none
+  LocalizedNames:
+    LocalizedName:
+      '@languagecode': 1033
+      '@description': RSS

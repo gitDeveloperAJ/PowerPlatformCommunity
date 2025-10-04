@@ -1,0 +1,171 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Pie:
+    Properties:
+      Fill: =RGBA(122, 138, 143, 1)
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - btn_initPie:
+          Control: Button@0.0.45
+          Properties:
+            OnSelect: |+
+              =ClearCollect(
+                  col_AnimeVotes,
+                  ForAll(
+                      Sequence(2000),   // generate 200 users
+                      {
+                          User: "U" & Text(Value), 
+                          Anime: Switch(
+                              RandBetween(1,10),
+                              1, "One Piece",
+                              2, "Naruto",
+                              3, "Attack on Titan",
+                              4, "Demon Slayer",
+                              5, "Jujutsu Kaisen",
+                              6, "Dragon Ball",
+                              7, "Bleach",
+                              8, "My Hero Academia",
+                              9, "Fullmetal Alchemist",
+                              10, "Death Note"
+                          )
+                      }
+                  )
+              );
+              ClearCollect(
+                  col_AnimePopularity,
+                  AddColumns(
+                      GroupBy(col_AnimeVotes, Anime, AnimeGroup),
+                      Fans,
+                      CountRows(AnimeGroup)
+                  )
+              );
+
+            Text: ="init"
+      - Container4:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Height: =Parent.Height-Self.Y
+            LayoutDirection: =LayoutDirection.Horizontal
+            Width: =Parent.Width
+            Y: =btn_initPie.Height
+          Children:
+            - Container5:
+                Control: GroupContainer@1.3.0
+                Variant: AutoLayout
+                Properties:
+                  LayoutDirection: =LayoutDirection.Vertical
+                Children:
+                  - Title2:
+                      Control: Label@2.5.1
+                      Group: Pie_Anime
+                      Properties:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(255, 0, 0, 1)
+                        Font: =Font.Georgia
+                        Height: =30
+                        Size: =18
+                        Text: ="ANIME FANS"
+                        Width: =Parent.Width
+                        X: =321
+                        Y: =69
+                  - PieChart1:
+                      Control: PieChart@2.2.0
+                      Group: Pie_Anime
+                      Properties:
+                        Color: =RGBA(255, 255, 255, 1)
+                        Explode: =2
+                        FillPortions: =1
+                        Font: =Font.Arial
+                        ItemBorderThickness: =1
+                        Items: =col_AnimePopularity
+                        Items.Labels: =Anime
+                        Items.Series: =Fans
+                        Size: =9
+                        Width: =Parent.Width
+                        X: =321
+                        Y: =30
+                  - Legend1:
+                      Control: Legend@2.1.0
+                      Group: Pie_Anime
+                      Properties:
+                        Color: =RGBA(255, 255, 255, 1)
+                        Font: =Font.Arial
+                        Height: =200
+                        ItemColorSet: =PieChart1.ItemColorSet
+                        Items: =PieChart1.SeriesLabels
+                        Items.Value: =Value
+                        Size: =13
+                        Width: =Parent.Width
+                        X: =321
+                        Y: =400
+            - Gallery2:
+                Control: Gallery@2.15.0
+                Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Items: =col_AnimePopularity
+                  TemplateSize: =50
+                Children:
+                  - Title3:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        Font: =Font.'Lato Black'
+                        FontWeight: =FontWeight.Bold
+                        Height: =42
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =ThisItem.Anime
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.Width/2
+                        X: =10
+                  - Subtitle1:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(255, 255, 255, 1)
+                        Font: =Font.'Lato Black'
+                        FontWeight: =FontWeight.Bold
+                        Height: =29
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =12
+                        Text: =ThisItem.Fans
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.Width/2-Rectangle1.Width
+                        X: =Parent.Width/2+Rectangle1.Width
+                  - Separator1:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =8
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                  - Rectangle1:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Fill: =RGBA(0, 18, 107, 1)
+                        Height: =Parent.TemplateHeight - Separator1.Height
+                        OnSelect: =Select(Parent)
+                        Visible: =ThisItem.IsSelected
+                        Width: =4

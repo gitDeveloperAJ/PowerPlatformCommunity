@@ -1,0 +1,8 @@
+connectionreference:
+  '@connectionreferencelogicalname': cr7d6_sharedpowerbi_04a12
+  connectionreferencedisplayname: Power BI Community-04a12
+  connectorid: /providers/Microsoft.PowerApps/apis/shared_powerbi
+  iscustomizable: 1
+  promptingbehavior: 0
+  statecode: 0
+  statuscode: 1

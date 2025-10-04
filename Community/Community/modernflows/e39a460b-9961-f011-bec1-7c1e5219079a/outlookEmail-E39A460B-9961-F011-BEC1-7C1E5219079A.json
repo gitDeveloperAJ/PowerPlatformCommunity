@@ -1,0 +1,167 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_office365": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "venaauto_Cref_Travel_Outlook"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "62347ead-5767-4890-8ae0-975603d23d25"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Compose": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "6dcc23c5-d9a7-4753-8827-3f5bc3f13bbc"
+          },
+          "type": "Compose",
+          "inputs": "a"
+        },
+        "Move_email_(V2)": {
+          "runAfter": {
+            "Get_emails_(V3)": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "Id::AAMkADgyOWE4NGJiLWJmZDAtNGExZi04MGFlLWZhZDQ5MzE0MzM5NgAuAAAAAAAI6Plmo_iOR6TVFzNdkNSkAQBS85sG7-_KS7w5fIo6WF2IAAAAAAEqAAA=": "Archive",
+            "operationMetadataId": "36c3f550-0cea-46ba-a06d-6fb4e1e666fb"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365",
+              "operationId": "MoveV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "messageId": "@first(outputs('Get_emails_(V3)')?['body/value'])?['Id']",
+              "folderPath": "Id::AAMkADgyOWE4NGJiLWJmZDAtNGExZi04MGFlLWZhZDQ5MzE0MzM5NgAuAAAAAAAI6Plmo_iOR6TVFzNdkNSkAQBS85sG7-_KS7w5fIo6WF2IAAAAAAEqAAA=",
+              "mailboxAddress": "SharedEmail@tpx2r.onmicrosoft.com;"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Get_emails_(V3)": {
+          "runAfter": {
+            "Send_an_HTTP_request": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "Id::AAMkADgyOWE4NGJiLWJmZDAtNGExZi04MGFlLWZhZDQ5MzE0MzM5NgAuAAAAAAAI6Plmo_iOR6TVFzNdkNSkAQBS85sG7-_KS7w5fIo6WF2IAAAAAAEMAAA=": "Inbox",
+            "operationMetadataId": "7e06e606-2bc6-4f23-9bef-e98faf57ac98"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365",
+              "operationId": "GetEmailsV3",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "folderPath": "Id::AAMkADgyOWE4NGJiLWJmZDAtNGExZi04MGFlLWZhZDQ5MzE0MzM5NgAuAAAAAAAI6Plmo_iOR6TVFzNdkNSkAQBS85sG7-_KS7w5fIo6WF2IAAAAAAEMAAA=",
+              "fetchOnlyUnread": false,
+              "mailboxAddress": "SharedEmail@tpx2r.onmicrosoft.com;",
+              "includeAttachments": false,
+              "top": 1,
+              "importance": "Any",
+              "fetchOnlyWithAttachment": false
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Get_contact_folders_(V2)": {
+          "runAfter": {
+            "Move_email_(V2)": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d2513400-c578-47c3-bd92-3cf828003956"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365",
+              "operationId": "ContactGetTablesV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {},
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Send_an_HTTP_request": {
+          "runAfter": {
+            "Compose": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7b7ab0e8-798f-4678-a6ba-3efef5517337"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365",
+              "operationId": "HttpRequest",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "Uri": "https://graph.microsoft.com/v1.0/me/mailFolders",
+              "Method": "GET",
+              "ContentType": "application/json"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

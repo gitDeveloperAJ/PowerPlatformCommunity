@@ -1,0 +1,53 @@
+RootComponents:
+  RootComponent:
+  - '@type': 29
+    '@id': '{19b4f785-af5d-f011-bec1-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{749435dc-9c65-f011-bec2-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{782e7ab0-825a-f011-bec1-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{941612b2-655e-f011-bec1-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{9b7b8967-385f-f011-bec2-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{a4a4a316-a859-f011-bec1-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{b6a3cc1a-835a-f011-bec1-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{d7f8975c-c360-f011-bec2-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{e39a460b-9961-f011-bec1-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{e9372af8-a25d-f011-bec1-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{f22bb6d4-185c-f011-bec1-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{f4aee270-375b-f011-bec1-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{fdbf121d-a959-f011-bec1-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 300
+    '@schemaName': cr7d6_appseries_bc50d
+    '@behavior': 0
+  - '@type': 300
+    '@schemaName': cr7d6_community2_0e9ef
+    '@behavior': 0
+  - '@type': 300
+    '@schemaName': cr7d6_communityarticles_9ad68
+    '@behavior': 0
+  - '@type': 300
+    '@schemaName': cr7d6_community_f190c
+    '@behavior': 0

@@ -1,0 +1,107 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Screen5:
+    Properties:
+      Fill: =RGBA(122, 138, 143, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    Children:
+      - Container4:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            DropShadow: =DropShadow.ExtraBold
+            Height: =Parent.Height/1.5
+            Width: =Parent.Width/2
+            X: =(Parent.Width-Self.Width)/2
+            Y: =(Parent.Height-Self.Height)/2
+          Children:
+            - HtmlText1:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  DisabledBorderColor: =RGBA(161, 159, 157, 1)
+                  Font: =Font.'Lato Black'
+                  Height: =384
+                  HtmlText: |-
+                    ="<div style='width:100%; height:100%; display:flex; justify-content:center; align-items:center;'>
+                      <div style='writing-mode: vertical-rl; text-orientation: upright;'>
+                        "&txt_Word.Value&"
+                      </div>
+                    </div>
+                    "
+                  Size: =25
+                  Width: =81
+                  X: =Parent.Width*0.8
+            - HtmlText1_1:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  DisabledBorderColor: =RGBA(161, 159, 157, 1)
+                  Font: =Font.'Lato Black'
+                  Height: =380
+                  HtmlText: |+
+                    ="<div style='width:100%; height:100%; display:flex; justify-content:center; align-items:center;'>
+                      <div style='writing-mode: vertical-rl; text-orientation: sideways;'>
+                        "&txt_Word.Value&"
+                      </div>
+                    </div>"
+
+                  Size: =25
+                  Width: =88
+                  X: =Parent.Width*0.6
+                  Y: =4
+            - HtmlText1_2:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  DisabledBorderColor: =RGBA(161, 159, 157, 1)
+                  Font: =Font.'Lato Black'
+                  Height: =384
+                  HtmlText: |
+                    ="<div style='width:100%; height:100%; display:flex; justify-content:center; align-items:center; overflow:visible;'>
+                      <div style='transform: rotate(90deg) translateX(45%); transform-origin:center; white-space:nowrap;'>
+                        "&txt_Word.Value&"
+                      </div>
+                    </div>"
+                  Size: =25
+                  Width: =88
+                  X: =Parent.Width*0.4
+            - HtmlText1_3:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  DisabledBorderColor: =RGBA(161, 159, 157, 1)
+                  Font: =Font.'Lato Black'
+                  Height: =384
+                  HtmlText: |
+                    ="<div style='width:100%; height:100%; display:flex; justify-content:center; align-items:center; overflow:visible;'>
+                      <div style='transform: rotate(270deg) translateX(-45%); transform-origin:center; white-space:nowrap;'>
+                        "&txt_Word.Value&"
+                      </div>
+                    </div>"
+                  Size: =25
+                  Width: =69
+                  X: =Parent.Width*0.2
+            - HtmlText1_4:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  DisabledBorderColor: =RGBA(161, 159, 157, 1)
+                  Font: =Font.'Lato Black'
+                  Height: =80
+                  HtmlText: |
+                    ="<div style='width:100%; height:100%; display:flex; justify-content:center; align-items:center; overflow:visible;'>
+                      <div style='transform: rotate(180deg); transform-origin:center; white-space:nowrap;'>
+                        "&txt_Word.Value&"
+                      </div>
+                    </div>"
+                  Size: =25
+                  Width: =Parent.Width
+                  Y: =Parent.Height-Self.Height
+      - txt_Word:
+          Control: TextInput@0.0.54
+          Properties:
+            X: =(Parent.Width-Self.Width)/2
+            Y: =Container4.Y-Self.Height-25

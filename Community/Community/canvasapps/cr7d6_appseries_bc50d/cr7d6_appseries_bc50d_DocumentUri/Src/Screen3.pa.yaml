@@ -1,0 +1,225 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Screen3:
+    Properties:
+      Fill: =RGBA(161, 159, 157, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    Children:
+      - Container5:
+          Control: GroupContainer@1.3.0
+          Variant: AutoLayout
+          Properties:
+            Height: =728
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutGap: =15
+            LayoutJustifyContent: =LayoutJustifyContent.Center
+            Width: =1336
+            X: =21
+            Y: =21
+          Children:
+            - TextInputRaw:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(245, 245, 245, 1)
+                  Color: =RGBA(50, 49, 48, 1)
+                  Default: =
+                  DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                  DisabledColor: =RGBA(161, 159, 157, 1)
+                  DisabledFill: =RGBA(242, 242, 241, 0)
+                  Font: =Font.'Segoe UI'
+                  HoverBorderColor: =RGBA(16, 110, 190, 1)
+                  HoverColor: =RGBA(50, 49, 48, 1)
+                  HoverFill: =RGBA(255, 255, 255, 1)
+                  PressedBorderColor: =RGBA(0, 120, 212, 1)
+                  PressedColor: =RGBA(50, 49, 48, 1)
+                  PressedFill: =RGBA(255, 255, 255, 1)
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: =Parent.Width/2
+                  X: =378
+                  Y: =42
+            - Mask:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =Font.'Open Sans'
+                  Height: =60
+                  HtmlText: |
+                    ="<div style='width:100%; height:" & (Self.Height - 20) & "px; 
+                        display:flex; align-items:center; justify-content:center; 
+                        background:linear-gradient(135deg,#4facfe,#00f2fe); 
+                        border-radius:15px; padding:10px; box-sizing:border-box; 
+                        overflow:hidden;'>
+                      "&If(
+                        Len(TextInputRaw.Text) <= 4,
+                        TextInputRaw.Text,
+                        Concatenate(
+                            Mid("************", 1, Len(TextInputRaw.Text)-4),
+                            Right(TextInputRaw.Text, 4)
+                        )
+                    )
+
+                    &"
+                    </div>"
+                  Width: =Parent.Width/2
+                  Y: =213
+            - Mask_4:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =Font.'Open Sans'
+                  Height: =60
+                  HtmlText: |
+                    ="<div style='width:100%; height:" & (Self.Height - 20) & "px; 
+                        display:flex; align-items:center; justify-content:center; 
+                        background:linear-gradient(135deg,#4facfe,#00f2fe); 
+                        border-radius:15px; padding:10px; box-sizing:border-box; 
+                        overflow:hidden;'>
+                        <span style=""-webkit-text-security: disc;"">" &
+                            Left(TextInputRaw.Text, Len(TextInputRaw.Text)-4) &
+                        "</span><span>" &
+                            Right(TextInputRaw.Text, 4) &
+                        "</span>
+                    </div>"
+                  Width: =Parent.Width/2
+                  Y: =213
+            - Mask_5:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =Font.'Open Sans'
+                  Height: =60
+                  HtmlText: |
+                    ="<div style='width:100%; height:" & (Self.Height - 20) & "px; 
+                        display:flex; align-items:center; justify-content:center; 
+                        background:linear-gradient(135deg,#4facfe,#00f2fe); 
+                        border-radius:15px; padding:10px; box-sizing:border-box; 
+                        overflow:hidden;'>
+                        <span style=""-webkit-text-security: disc;"">" &
+                        TextInputRaw.Text&
+                        "</span>
+                    </div>"
+                  Width: =Parent.Width/2
+                  Y: =213
+            - Mask_1:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =Font.'Open Sans'
+                  Height: =60
+                  HtmlText: |
+                    ="<div style='width:100%; height:" & (Self.Height - 20) & "px; 
+                        display:flex; align-items:center; justify-content:center; 
+                        background:linear-gradient(135deg,#4facfe,#00f2fe); 
+                        border-radius:15px; padding:10px; box-sizing:border-box; 
+                        overflow:hidden;'>
+                      "&If(
+                        Len(TextInputRaw.Text) <= 4,
+                        TextInputRaw.Text,
+                        Concatenate(
+                            Mid("*********", 1, Len(TextInputRaw.Text)-4),
+                            Right(TextInputRaw.Text, 4)
+                        )
+                    )
+
+
+                    &"
+                    </div>"
+                  Width: =Parent.Width/2
+                  Y: =213
+            - Mask_2:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =Font.'Open Sans'
+                  Height: =60
+                  HtmlText: |
+                    ="<div style='width:100%; height:" & (Self.Height - 20) & "px; 
+                        display:flex; align-items:center; justify-content:center; 
+                        background:linear-gradient(135deg,#4facfe,#00f2fe); 
+                        border-radius:15px; padding:10px; box-sizing:border-box; 
+                        overflow:hidden;'>
+                      "&If(
+                        Len(TextInputRaw.Text) <= 4,
+                        TextInputRaw.Text,
+                        "(***) ***-" & Right(TextInputRaw.Text, 4)
+                    )
+
+
+                    &"
+                    </div>"
+                  Width: =Parent.Width/2
+                  Y: =213
+            - Mask_3:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =Font.'Open Sans'
+                  Height: =60
+                  HtmlText: |
+                    ="<div style='width:100%; height:" & (Self.Height - 20) & "px; 
+                        display:flex; align-items:center; justify-content:center; 
+                        background:linear-gradient(135deg,#4facfe,#00f2fe); 
+                        border-radius:15px; padding:10px; box-sizing:border-box; 
+                        overflow:hidden;'>
+                      "&If(
+                        Len(TextInputRaw.Text) <= 3,
+                        TextInputRaw.Text,
+                        Concatenate(
+                            Mid("********", 1, Len(TextInputRaw.Text)-3),
+                            Right(TextInputRaw.Text, 3)
+                        )
+                    )
+
+                    &"
+                    </div>"
+                  Width: =Parent.Width/2
+                  Y: =213
+            - txt_Self:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(245, 245, 245, 1)
+                  Color: =RGBA(50, 49, 48, 1)
+                  Default: |-
+                    =If(
+                        lvar_reveal,
+                        lvar_rawValue,
+                        Concatenate(
+                            Left("********************", Max(0, Len(lvar_rawValue)-4)),
+                            Right(lvar_rawValue, 4)
+                        )
+                    )
+                  DelayOutput: =true
+                  DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                  DisabledColor: =RGBA(161, 159, 157, 1)
+                  DisabledFill: =RGBA(242, 242, 241, 0)
+                  Font: =Font.'Segoe UI'
+                  HoverBorderColor: =RGBA(16, 110, 190, 1)
+                  HoverColor: =RGBA(50, 49, 48, 1)
+                  HoverFill: =RGBA(255, 255, 255, 1)
+                  OnChange: |-
+                    =UpdateContext({ lvar_rawValue: Self.Text ,lvar_reveal:false});Reset(Self)
+                  OnSelect: |-
+                    =UpdateContext({ lvar_reveal: true })
+                  PressedBorderColor: =RGBA(0, 120, 212, 1)
+                  PressedColor: =RGBA(50, 49, 48, 1)
+                  PressedFill: =RGBA(255, 255, 255, 1)
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Width: =Parent.Width/2
+                  X: =369
+                  Y: =93
+            - TextInputCanvas1:
+                Control: TextInput@0.0.54
+                Properties:
+                  Placeholder: ="Modern Control"
+                  Type: ='TextInputCanvas.Type'.Password
+                  Width: =Parent.Width/2
+                  X: =40
+                  Y: =40

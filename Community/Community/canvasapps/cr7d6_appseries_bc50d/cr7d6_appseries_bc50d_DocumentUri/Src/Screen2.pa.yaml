@@ -1,0 +1,275 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Screen2:
+    Properties:
+      BackgroundImage: =Naruto
+      Fill: =RGBA(214, 221, 224, 1)
+      ImagePosition: =ImagePosition.Center
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    Children:
+      - conDynamicConcurrent:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            DropShadow: =DropShadow.ExtraBold
+            Fill: =RGBA(255, 255, 255, 0.9)
+            Height: =Parent.Height*0.7
+            Width: =Parent.Width*0.6
+            X: =(App.Width-Self.Width)/2
+            Y: =(App.Height-Self.Height)/2
+          Children:
+            - btn_Init:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 0)
+                  BorderStyle: =BorderStyle.None
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                  DisabledColor: =RGBA(161, 159, 157, 1)
+                  DisabledFill: =RGBA(242, 242, 241, 0)
+                  Fill: =RGBA(0, 120, 212, 1)
+                  Font: =Font.'Segoe UI'
+                  HoverBorderColor: =RGBA(0, 0, 0, 0)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =RGBA(16, 110, 190, 1)
+                  OnSelect: |-
+                    =ClearCollect(col_Orders, ForAll(Sequence(50), { ID: Value, Order: "Order-" & Value }));
+                        ClearCollect(col_Messages, ForAll(Sequence(50), { ID: Value, Msg: "Msg-" & Value }));
+                        ClearCollect(col_Profile, ForAll(Sequence(50), { ID: Value, Name: "User-" & Value, Role: "Ninja" }));
+                        ClearCollect(col_Tasks, {ID:1, Task:"GetUserProfile"}, {ID:2, Task:"FetchOrders"}, {ID:3, Task:"RetrieveNotifications"});
+                        Clear(col_Results);
+                        Clear(col_ConcurrentResults);
+                        UpdateContext({ lvar_timerstart: false});
+                        UpdateContext({ lvar_Status: "Initialized 50 records per collection"})
+                  PressedBorderColor: =RGBA(0, 69, 120, 1)
+                  PressedColor: =RGBA(255, 255, 255, 1)
+                  PressedFill: =RGBA(16, 110, 190, 1)
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Text: ="init"
+                  X: =9
+                  Y: =3
+            - btn_Conc:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 0)
+                  BorderStyle: =BorderStyle.None
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                  DisabledColor: =RGBA(161, 159, 157, 1)
+                  DisabledFill: =RGBA(242, 242, 241, 0)
+                  Fill: =RGBA(0, 120, 212, 1)
+                  Font: =Font.'Segoe UI'
+                  HoverBorderColor: =RGBA(0, 0, 0, 0)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =RGBA(16, 110, 190, 1)
+                  OnSelect: |-
+                    =Concurrent(
+                            ClearCollect(col_OrdersResult, col_Orders),
+                            ClearCollect(col_MessagesResult, col_Messages),
+                            ClearCollect(col_ProfileResult, col_Profile)
+                        );
+                        ClearCollect(
+                            col_ConcurrentResults,
+                            col_OrdersResult,
+                            col_MessagesResult,
+                            col_ProfileResult
+                        );
+                        UpdateContext({ lvar_Status: "Concurrent clones finished: " & CountRows(col_ConcurrentResults) & " records" });
+                  PressedBorderColor: =RGBA(0, 69, 120, 1)
+                  PressedColor: =RGBA(255, 255, 255, 1)
+                  PressedFill: =RGBA(16, 110, 190, 1)
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Text: ="Concurrent"
+                  X: =215
+                  Y: =3
+            - btn_auto:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 0)
+                  BorderStyle: =BorderStyle.None
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                  DisabledColor: =RGBA(161, 159, 157, 1)
+                  DisabledFill: =RGBA(242, 242, 241, 0)
+                  Fill: =RGBA(0, 120, 212, 1)
+                  Font: =Font.'Segoe UI'
+                  HoverBorderColor: =RGBA(0, 0, 0, 0)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =RGBA(16, 110, 190, 1)
+                  OnSelect: |+
+                    =Clear(col_Results);
+                    UpdateContext({ lvar_timerstart: true});
+                  PressedBorderColor: =RGBA(0, 69, 120, 1)
+                  PressedColor: =RGBA(255, 255, 255, 1)
+                  PressedFill: =RGBA(16, 110, 190, 1)
+                  RadiusBottomLeft: =0
+                  RadiusBottomRight: =0
+                  RadiusTopLeft: =0
+                  RadiusTopRight: =0
+                  Text: ="DynamicConcurrent"
+                  Width: =250
+                  X: =423
+                  Y: =3
+            - Gallery1:
+                Control: Gallery@2.15.0
+                Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+                Properties:
+                  BorderColor: =RGBA(245, 245, 245, 1)
+                  Height: =131
+                  Items: =col_Tasks
+                  TemplateSize: =42
+                  Width: =1357
+                  X: =9
+                  Y: =56
+                Children:
+                  - lbl_TaskName:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =If(ThisItem.IsSelected, Color.Green, Color.Black)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Bold, FontWeight.Semibold)
+                        Height: =29
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =12
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: =ThisItem.Task
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =572
+                        X: =4
+                        Y: =5
+                  - Separator1:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =8
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                  - Rectangle1:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Fill: =RGBA(0, 120, 212, 1)
+                        Height: =Parent.TemplateHeight - Separator1.Height
+                        OnSelect: =Select(Parent)
+                        Visible: =ThisItem.IsSelected
+                        Width: =4
+                  - Timer2:
+                      Control: Timer@2.1.0
+                      Properties:
+                        AutoStart: = lvar_timerstart
+                        BorderColor: =RGBA(0, 120, 212, 1)
+                        BorderStyle: =BorderStyle.None
+                        Color: =RGBA(255, 255, 255, 1)
+                        DisabledBorderColor: =RGBA(242, 242, 241, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        DisabledFill: =RGBA(242, 242, 241, 0)
+                        Duration: =3000
+                        Fill: =RGBA(0, 120, 212, 1)
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =RGBA(16, 110, 190, 1)
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =RGBA(16, 110, 190, 1)
+                        OnSelect: =Select(Parent)
+                        OnTimerEnd: |-
+                          = If(
+                                      CountRows(col_Results) = CountRows(col_Tasks),
+                                      UpdateContext({ lvar_Status: "All timer clones finished" })
+                                    );
+                                      UpdateContext({ lvar_timerstart: false});
+                        OnTimerStart: |-
+                          =Switch(
+                                      ThisItem.Task,
+                                      "GetUserProfile", Collect(col_Results, { ID: ThisItem.ID, Data: col_Profile }),
+                                      "FetchOrders", Collect(col_Results, { ID: ThisItem.ID, Data: col_Orders }),
+                                      "RetrieveNotifications", Collect(col_Results, { ID: ThisItem.ID, Data: col_Messages })
+                                    )
+                        PressedBorderColor: =RGBA(16, 110, 190, 1)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(16, 110, 190, 1)
+                        X: =644
+            - Gallery1_1:
+                Control: Gallery@2.15.0
+                Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
+                Properties:
+                  BorderColor: =RGBA(245, 245, 245, 1)
+                  Height: =181
+                  Items: =col_Results
+                  TemplateSize: =42
+                  Width: =1357
+                  X: =9
+                  Y: =299
+                Children:
+                  - lbl_TaskName_1:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =If(ThisItem.IsSelected, Color.Green, Color.Black)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Bold, FontWeight.Semibold)
+                        Height: =29
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =12
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =14
+                        Text: |-
+                          ="Clone " & ThisItem.ID & ": " & CountRows(ThisItem.Data) & " rows"
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =572
+                        X: =4
+                        Y: =5
+                  - Separator1_1:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =8
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                  - Rectangle1_1:
+                      Control: Rectangle@2.3.0
+                      Properties:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        Fill: =RGBA(0, 120, 212, 1)
+                        Height: =Parent.TemplateHeight - Separator1_1.Height
+                        OnSelect: =Select(Parent)
+                        Visible: =ThisItem.IsSelected
+                        Width: =4
+            - HtmlTimer_2:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =Font.'Open Sans'
+                  Height: =60
+                  HtmlText: |
+                    ="<div style='width:100%; height:" & (Self.Height - 20) & "px; 
+                        display:flex; align-items:center; justify-content:center; 
+                        background:linear-gradient(135deg,#4facfe,#00f2fe); 
+                        border-radius:15px; padding:10px; box-sizing:border-box; 
+                        overflow:hidden;'>
+                      ⚡"&lvar_Status&"
+                    </div>"
+                  Width: =Parent.Width
+                  Y: =213

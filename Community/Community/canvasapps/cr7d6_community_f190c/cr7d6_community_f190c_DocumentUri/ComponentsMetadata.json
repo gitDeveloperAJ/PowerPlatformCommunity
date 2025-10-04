@@ -1,0 +1,18 @@
+{
+  "Components": [
+    {
+      "Name": "cmp_PopUp",
+      "TemplateName": "8ad6b01b99344d9fb61dacbb99ac9c57",
+      "Description": "",
+      "AllowCustomization": true,
+      "AllowAccessToGlobals": false
+    },
+    {
+      "Name": "cmp_GalDemo",
+      "TemplateName": "bd8639fa8f5941f4bd2fc43fe6ae6559",
+      "Description": "",
+      "AllowCustomization": true,
+      "AllowAccessToGlobals": false
+    }
+  ]
+}

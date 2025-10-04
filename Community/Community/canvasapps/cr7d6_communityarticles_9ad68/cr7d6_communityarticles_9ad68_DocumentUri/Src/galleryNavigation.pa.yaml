@@ -1,0 +1,154 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  galleryNavigation:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - con_CustomGalNav:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Height: =765
+            Width: =1366
+            Y: =3
+          Children:
+            - gal_Char:
+                Control: Gallery@2.15.0
+                Variant: BrowseLayout_Horizontal_TwoTextOneImageVariant_ver5.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: =Index(col_Big3Characters,lvar_galcharIndex)
+                  Height: =607
+                  Items: =col_Big3Characters
+                  TemplateSize: =282
+                  Width: =1366
+                  Y: =158
+                Children:
+                  - lbl_Anime:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Semibold
+                        Height: =48
+                        OnSelect: =Select(Parent)
+                        Text: =ThisItem.AnimeName
+                        Width: =Parent.TemplateWidth
+                        Y: =100
+                  - lbl_CharName:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Font: =Font.'Open Sans'
+                        FontWeight: =FontWeight.Bold
+                        OnSelect: =Select(Parent)
+                        Text: =ThisItem.Character
+                        Width: =Parent.TemplateWidth
+                        Y: =178
+                  - lbl_Index:
+                      Control: Label@2.5.1
+                      Properties:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Font: =Font.'Open Sans'
+                        OnSelect: =Select(Parent)
+                        Text: =ThisItem.ID
+                        Y: =40
+            - btn_Init:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =ColorFade(Self.Fill, -15%)
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                  Fill: =RGBA(56, 96, 178, 1)
+                  Font: =Font.'Open Sans'
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                  OnSelect: |-
+                    =ClearCollect(
+                        col_Big3Characters,
+                        {ID: 1, Character: "Monkey D. Luffy", AnimeName: "One Piece"},
+                        {ID: 2, Character: "Roronoa Zoro", AnimeName: "One Piece"},
+                        {ID: 3, Character: "Nami", AnimeName: "One Piece"},
+                        {ID: 4, Character: "Vinsmoke Sanji", AnimeName: "One Piece"},
+                        {ID: 5, Character: "Portgas D. Ace", AnimeName: "One Piece"},
+                        {ID: 6, Character: "Trafalgar D. Water Law", AnimeName: "One Piece"},
+                        {ID: 7, Character: "Nico Robin", AnimeName: "One Piece"},
+                        {ID: 8, Character: "Usopp", AnimeName: "One Piece"},
+                        {ID: 9, Character: "Franky", AnimeName: "One Piece"},
+                        {ID: 10, Character: "Tony Tony Chopper", AnimeName: "One Piece"},
+                        {ID: 11, Character: "Naruto Uzumaki", AnimeName: "Naruto"},
+                        {ID: 12, Character: "Sasuke Uchiha", AnimeName: "Naruto"},
+                        {ID: 13, Character: "Sakura Haruno", AnimeName: "Naruto"},
+                        {ID: 14, Character: "Kakashi Hatake", AnimeName: "Naruto"},
+                        {ID: 15, Character: "Itachi Uchiha", AnimeName: "Naruto"},
+                        {ID: 16, Character: "Hinata Hyuga", AnimeName: "Naruto"},
+                        {ID: 17, Character: "Jiraiya", AnimeName: "Naruto"},
+                        {ID: 18, Character: "Orochimaru", AnimeName: "Naruto"},
+                        {ID: 19, Character: "Shikamaru Nara", AnimeName: "Naruto"},
+                        {ID: 20, Character: "Gaara", AnimeName: "Naruto"},
+                        {ID: 21, Character: "Ichigo Kurosaki", AnimeName: "Bleach"},
+                        {ID: 22, Character: "Rukia Kuchiki", AnimeName: "Bleach"},
+                        {ID: 23, Character: "Renji Abarai", AnimeName: "Bleach"},
+                        {ID: 24, Character: "Orihime Inoue", AnimeName: "Bleach"},
+                        {ID: 25, Character: "Uryū Ishida", AnimeName: "Bleach"},
+                        {ID: 26, Character: "Byakuya Kuchiki", AnimeName: "Bleach"},
+                        {ID: 27, Character: "Toshiro Hitsugaya", AnimeName: "Bleach"},
+                        {ID: 28, Character: "Soi Fon", AnimeName: "Bleach"},
+                        {ID: 29, Character: "Yoruichi Shihouin", AnimeName: "Bleach"},
+                        {ID: 30, Character: "Aizen Sosuke", AnimeName: "Bleach"}
+                    );
+                    UpdateContext({lvar_galcharIndex:1})
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  Text: ="Init"
+                  X: =16
+                  Y: =80
+            - btn_Previous:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =ColorFade(Self.Fill, -15%)
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                  Fill: =RGBA(56, 96, 178, 1)
+                  Font: =Font.'Open Sans'
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                  OnSelect: |-
+                    =UpdateContext({lvar_galcharIndex:Max(gal_Char.VisibleIndex-(gal_Char.Width/gal_Char.TemplateWidth),1)});
+                    Reset(gal_Char);
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  Text: ="Previous"
+                  X: =822
+                  Y: =80
+            - btn_Next:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =ColorFade(Self.Fill, -15%)
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                  Fill: =RGBA(56, 96, 178, 1)
+                  Font: =Font.'Open Sans'
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                  OnSelect: |-
+                    =UpdateContext({lvar_galcharIndex:Min(gal_Char.VisibleIndex+(gal_Char.Width/gal_Char.TemplateWidth),Max(gal_Char.AllItemsCount))});
+                    Reset(gal_Char);
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  Text: ="Next"
+                  X: =1016
+                  Y: =80

@@ -1,0 +1,8 @@
+connectionreference:
+  '@connectionreferencelogicalname': cr7d6_sharedwebcontents_787b9
+  connectionreferencedisplayname: HTTP with Microsoft Entra ID (preauthorized) Community-787b9
+  connectorid: /providers/Microsoft.PowerApps/apis/shared_webcontents
+  iscustomizable: 1
+  promptingbehavior: 0
+  statecode: 0
+  statuscode: 1

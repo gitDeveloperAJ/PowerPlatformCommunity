@@ -1,0 +1,66 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  PoPUP:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - btn_init_Popup:
+          Control: Button@0.0.45
+          Properties:
+            OnSelect: =UpdateContext({lvar_PoPupbool:true,lvar_Msg:"PoP up clicked"})
+            Text: ="popup"
+            X: =(Parent.Width-Self.Width)/2
+            Y: =200
+      - txt_Action:
+          Control: Text@0.0.51
+          Properties:
+            Align: ='TextCanvas.Align'.Center
+            Height: =67
+            Size: =22
+            Text: =lvar_Msg
+            VerticalAlign: =VerticalAlign.Middle
+            Weight: ='TextCanvas.Weight'.Bold
+            Width: =900
+            X: =(Parent.Width-Self.Width)/2
+            Y: =550
+      - cmp_PopUp_1:
+          Control: CanvasComponent
+          ComponentName: cmp_PopUp
+          Properties:
+            Height: =Parent.Height
+            OnActionClick: |-
+              =Switch(
+                  Lower(paramActionInternalName),
+                  "save",
+                  UpdateContext(
+                      {
+                          lvar_PoPupbool: false,
+                          lvar_Msg: "Clicked on Submit Button"
+                      }
+                  ),
+                  "close",
+                  UpdateContext(
+                      {
+                          lvar_PoPupbool: false,
+                          lvar_Msg: "Clicked on Cancel Button"
+                      }
+                  )
+              )
+            Visible: =lvar_PoPupbool
+            Width: =Parent.Width
+            ip_Actions: |-
+              =Table({DisplayText: "Submit", InternalText: "save", Icon:"Save"},{DisplayText: "Cancel", InternalText: "close", Icon:"Dismiss"})
+            ip_HeaderText: ="My Header Text"
+            ip_PopUPText: |-
+              ="This section provides information about the actions triggered through the pop-up.
+
+              When the Submit button is clicked, the pop-up will close and the label below will be updated to ‘Clicked on Submit Button’.
+
+              When the Cancel button is clicked, the pop-up will close and the label below will be updated to ‘Clicked on Cancel Button’"

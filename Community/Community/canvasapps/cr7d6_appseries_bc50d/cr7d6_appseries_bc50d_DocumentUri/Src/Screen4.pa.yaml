@@ -1,0 +1,194 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps should only be used to review changes made within Power Apps Studio and for minor edits (Preview).
+# Use the maker portal to create and edit your Power Apps.
+# 
+# The schema file for Canvas Apps is available at https://go.microsoft.com/fwlink/?linkid=2304907
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Screen4:
+    Properties:
+      Fill: =RGBA(122, 138, 143, 1)
+      LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    Children:
+      - con_With:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            DropShadow: =DropShadow.Bold
+            Height: =Parent.Height
+            Width: =Parent.Width
+          Children:
+            - TextCanvas1:
+                Control: Text@0.0.51
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  Font: =Font.'Lato Black'
+                  Height: =Parent.Height
+                  Size: =350
+                  Text: ="WITH( )"
+                  VerticalAlign: =VerticalAlign.Middle
+                  Width: =Parent.Width
+            - btn_GenerateData:
+                Control: Button@0.0.45
+                Properties:
+                  Height: =38
+                  OnSelect: |+
+                    =// 1. Generate 1000 Anime records
+                    ClearCollect(
+                        col_Anime,
+                        ForAll(
+                            Sequence(1000),
+                            {
+                                AnimeID: Value,
+                                Title: "Anime " & Text(Value),
+                                Genre: Switch(
+                                    Mod(Value,10),
+                                    0,"Action",
+                                    1,"Romance",
+                                    2,"Comedy",
+                                    3,"Fantasy",
+                                    4,"SciFi",
+                                    5,"Horror",
+                                    6,"SliceOfLife",
+                                    7,"Mystery",
+                                    8,"Sports",
+                                    "Adventure"     // fallback for 9
+                                ),
+                                Email: "user" & RandBetween(1,10000) & "@anime.com",   // maps into 10k users
+                                 Episodes: RandBetween(12,200),
+                                Rating: RandBetween(50,100)/10
+                            }
+                        )
+                    );
+
+                    // 2. Expanded Genre Budgets
+                    ClearCollect(
+                        col_GenreBudgets,
+                        Table(
+                            {Genre: "Action", Budget: 100000},
+                            {Genre: "Romance", Budget: 80000},
+                            {Genre: "Comedy", Budget: 60000},
+                            {Genre: "Fantasy", Budget: 120000},
+                            {Genre: "SciFi", Budget: 150000},
+                            {Genre: "Horror", Budget: 90000},
+                            {Genre: "SliceOfLife", Budget: 70000},
+                            {Genre: "Mystery", Budget: 110000},
+                            {Genre: "Sports", Budget: 95000},
+                            {Genre: "Adventure", Budget: 140000}
+                        )
+                    );
+
+                    // 3. Generate 10,000 Users
+                    ClearCollect(
+                        col_Users,
+                        ForAll(
+                            Sequence(10000),
+                            {
+                                Email: "user" & Text(Value-1) & "@anime.com",
+                                Name: "User " & Text(Value),
+                                Role: Switch(
+                                    Mod(Value,5),
+                                    0,"Reviewer",
+                                    1,"Admin",
+                                    2,"Moderator",
+                                    3,"Editor",
+                                    "Guest"
+                                )
+                            }
+                        )
+                    );
+                  Text: ="Generate Data"
+                  Width: =134
+                  X: =(Parent.Width-Self.Width)/2
+                  Y: =40
+            - btn_noWith:
+                Control: Button@0.0.45
+                Properties:
+                  Height: =38
+                  OnSelect: |
+                    =Set(gvar_startLookup, Now());
+
+                    ClearCollect(
+                        col_AnimeResultsLookup,
+                        ForAll(
+                            col_Anime,
+                            {
+                                AnimeID: AnimeID,
+                                Title: Title,
+                                Genre: Genre,
+                                Episodes: Episodes,
+                                Rating: Rating,
+                                Reviewer: LookUp(col_Users, Email = "otaku@anime.com").Name,
+                                ReviewerRole: LookUp(col_Users, Email = "otaku@anime.com").Role,
+                                Budget: LookUp(col_GenreBudgets, Genre = Genre).Budget,
+                                Score: Round(
+                                    (Rating * Episodes) + LookUp(col_GenreBudgets, Genre = Genre).Budget/1000,
+                                    2
+                                )
+                            }
+                        )
+                    );
+
+                    Set(gvar_endLookup, Now());
+                    Set(gvar_timeLookup, DateDiff(gvar_startLookup, gvar_endLookup, TimeUnit.Milliseconds));
+                  Text: ="Without With"
+                  Width: =134
+                  X: =(Parent.Width-Self.Width)/2
+                  Y: =124
+            - html_lookup:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =Font.'Open Sans'
+                  Height: =60
+                  HtmlText: "=\"<div style='width:100%; height:\" & (Self.Height - 20) & \"px; \n    display:flex; align-items:center; justify-content:center; \n    background:linear-gradient(135deg,#4facfe,#00f2fe); \n    border-radius:15px; padding:10px; box-sizing:border-box; \n    overflow:hidden;'>\n    \n   LookUp Execution Time: \" & gvar_timeLookup& \" ms\n   \n</div>\"\n"
+                  Width: =Parent.Width/2
+                  X: =(Parent.Width-Self.Width)/2
+                  Y: =201
+            - btn_With:
+                Control: Button@0.0.45
+                Properties:
+                  Height: =38
+                  OnSelect: |
+                    =Set(gvar_startWith, Now());
+
+                    ClearCollect(
+                        col_AnimeResultsWith,
+                        ForAll(
+                            col_Anime,
+                            With(
+                                {
+                                    userData: LookUp(col_Users, Email = "otaku@anime.com"),
+                                    budgetData: LookUp(col_GenreBudgets, Genre = Genre)
+                                },
+                                {
+                                    AnimeID: AnimeID,
+                                    Title: Title,
+                                    Genre: Genre,
+                                    Episodes: Episodes,
+                                    Rating: Rating,
+                                    Reviewer: userData.Name,
+                                    ReviewerRole: userData.Role,
+                                    Budget: budgetData.Budget,
+                                    Score: Round((Rating * Episodes) + budgetData.Budget/1000, 2)
+                                }
+                            )
+                        )
+                    );
+
+                    Set(gvar_endWith, Now());
+                    Set(gvar_timeWith, DateDiff(gvar_startWith, gvar_endWith, TimeUnit.Milliseconds));
+                  Text: ="With"
+                  Width: =134
+                  X: =(Parent.Width-Self.Width)/2
+                  Y: =526
+            - html_With:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =Font.'Open Sans'
+                  Height: =60
+                  HtmlText: "=\"<div style='width:100%; height:\" & (Self.Height - 20) & \"px; \n    display:flex; align-items:center; justify-content:center; \n    background:linear-gradient(135deg,#4facfe,#00f2fe); \n    border-radius:15px; padding:10px; box-sizing:border-box; \n    overflow:hidden;'>\n    \n   With() Execution Time: \" & gvar_timeWith & \" ms\n   \n</div>\"\n"
+                  Width: =Parent.Width/2
+                  X: =(Parent.Width-Self.Width)/2
+                  Y: =579

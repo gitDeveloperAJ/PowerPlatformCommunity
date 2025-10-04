@@ -1,0 +1,70 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_translatorv2": {
+        "api": {
+          "name": "shared_translatorv2"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "cr7d6_sharedtranslatorv2_80c36"
+        },
+        "runtimeSource": "invoker"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "c21cc2cf-ed13-4ed2-8941-0d333c4743b4"
+          }
+        }
+      },
+      "actions": {
+        "Translate_text": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "body/Text": "This is blog on Azure Translator",
+              "to": "te",
+              "from": "en",
+              "category": "general",
+              "textType": "plain"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_translatorv2",
+              "operationId": "Translate",
+              "connectionName": "shared_translatorv2"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "e04d3fac-6b62-4616-b1a1-45c6c768b22a"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

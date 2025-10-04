@@ -1,0 +1,8 @@
+connectionreference:
+  '@connectionreferencelogicalname': cr7d6_sharedrss_fe28b
+  connectionreferencedisplayname: RSS Community-fe28b
+  connectorid: /providers/Microsoft.PowerApps/apis/shared_rss
+  iscustomizable: 1
+  promptingbehavior: 0
+  statecode: 0
+  statuscode: 1
