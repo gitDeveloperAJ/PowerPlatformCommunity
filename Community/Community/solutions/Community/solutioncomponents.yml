@@ -12,6 +12,7 @@ SolutionComponents:
   - '@path': /connectionreferences/cr7d6_sharedwebcontents_787b9
   - '@path': /customoperations/a4a4a316-a859-f011-bec1-7c1e5219079a
   - '@path': /environmentvariabledefinitions/cr7d6_articlelink
+  - '@path': /environmentvariabledefinitions/cr7d6_delay
   - '@path': /environmentvariabledefinitions/cr7d6_postlink
   - '@path': /modernflows/19b4f785-af5d-f011-bec1-7c1e5219079a
   - '@path': /modernflows/749435dc-9c65-f011-bec2-7c1e5219079a

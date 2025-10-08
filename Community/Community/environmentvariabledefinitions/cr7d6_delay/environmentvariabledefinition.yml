@@ -1,0 +1,13 @@
+environmentvariabledefinition:
+  '@schemaname': cr7d6_delay
+  defaultvalue: 10
+  displayname:
+    '@default': delay
+    label:
+      '@description': delay
+      '@languagecode': 1033
+  introducedversion: 1.0.0.0
+  iscustomizable: 1
+  isrequired: 0
+  secretstore: 0
+  type: 100000001
