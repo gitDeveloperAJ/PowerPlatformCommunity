@@ -7,6 +7,15 @@ MissingDependencies:
       '@solution': Active
     Dependent:
       '@type': 29
+      '@displayName': ExpandQuery
+      '@id': '{0befd648-eea5-f011-bbd2-7c1e52804440}'
+  - Required:
+      '@type': 1
+      '@schemaName': cr7d6_child1
+      '@displayName': child1
+      '@solution': Active
+    Dependent:
+      '@type': 29
       '@displayName': unbound
       '@id': '{a4a4a316-a859-f011-bec1-7c1e5219079a}'
   - Required:
@@ -73,6 +82,15 @@ MissingDependencies:
       '@type': 29
       '@displayName': unbound
       '@id': '{a4a4a316-a859-f011-bec1-7c1e5219079a}'
+  - Required:
+      '@type': connectionreference
+      '@displayName': cr7d6_cref_dataverse
+      '@solution': Active
+      '@id.connectionreferencelogicalname': cr7d6_cref_dataverse
+    Dependent:
+      '@type': 29
+      '@displayName': ExpandQuery
+      '@id': '{0befd648-eea5-f011-bbd2-7c1e52804440}'
   - Required:
       '@type': connectionreference
       '@displayName': cr7d6_cref_dataverse

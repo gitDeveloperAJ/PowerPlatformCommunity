@@ -1,0 +1,174 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_flowmanagement": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "cr7d6_sharedflowmanagement_ca592"
+        },
+        "api": {
+          "name": "shared_flowmanagement"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "undefined",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "88e4d816-0238-4666-a2f3-65305a01db9e"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "arrhttpflows": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "85911e71-de1b-49b1-b1c9-004fe4a1ce1f"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "arrhttpflows",
+                "type": "array",
+                "value": [
+                  {
+                    "DisplayName": "HttpBC",
+                    "FlowName": "82c1f76d-d2c1-4b9f-831c-99e3dd9f1dec",
+                    "EnvironmentName": "a764f425-9f39-e58d-8be1-9f83ac3e3b1d"
+                  },
+                  {
+                    "DisplayName": "Http -> Compose",
+                    "FlowName": "78763cd1-1e2d-41db-9c7b-e1b718aac8e2",
+                    "EnvironmentName": "a764f425-9f39-e58d-8be1-9f83ac3e3b1d"
+                  },
+                  {
+                    "DisplayName": "http",
+                    "FlowName": "89d486c8-335e-4938-b25d-21bcb21c2292",
+                    "EnvironmentName": "a764f425-9f39-e58d-8be1-9f83ac3e3b1d"
+                  }
+                ]
+              }
+            ]
+          },
+          "description": "{     \"DisplayName\": \"HttpBC\",     \"FlowName\": \"82c1f76d-d2c1-4b9f-831c-99e3dd9f1dec\",     \"EnvironmentName\": \"a764f425-9f39-e58d-8be1-9f83ac3e3b1d\"   }"
+        },
+        "arrFlowurls": {
+          "runAfter": {
+            "arrhttpflows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "36f2ce92-2b23-44cb-9cb8-a39f0d572f58"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "arrFlowurls",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Apply_to_each": {
+          "foreach": "@variables('arrhttpflows')",
+          "actions": {
+            "List_Callback_URL": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "ec197adc-24e4-4594-9cf8-08919b59634c"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement",
+                  "connectionName": "shared_flowmanagement",
+                  "operationId": "ListCallbackUrl"
+                },
+                "parameters": {
+                  "environmentName": "@items('Apply_to_each')['EnvironmentName']",
+                  "flowName": "@items('Apply_to_each')['FlowName']"
+                },
+                "authentication": {
+                  "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']",
+                  "type": "Raw"
+                }
+              }
+            },
+            "Append_to_array_variable": {
+              "runAfter": {
+                "List_Callback_URL": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "8302a066-95fc-4c9c-bfaa-4bd707f4abf6"
+              },
+              "type": "AppendToArrayVariable",
+              "inputs": {
+                "name": "arrFlowurls",
+                "value": {
+                  "DisplayName": "@items('Apply_to_each')['DisplayName']",
+                  "FlowName": "@items('Apply_to_each')['FlowName']",
+                  "EnvironmentName": "@items('Apply_to_each')['EnvironmentName']",
+                  "FlowUrls": "@outputs('List_Callback_URL')?['body/response/value']"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "arrFlowurls": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a3cf2094-d588-45e7-8afd-abb3dbb94c5e"
+          },
+          "type": "Foreach",
+          "runtimeConfiguration": {
+            "concurrency": {
+              "repetitions": 50
+            }
+          }
+        },
+        "Compose": {
+          "runAfter": {
+            "Apply_to_each": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "fd36557b-f1fb-43bb-9abd-07c202568693"
+          },
+          "type": "Compose",
+          "inputs": "@variables('arrFlowurls')"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

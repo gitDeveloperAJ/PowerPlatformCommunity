@@ -1,10 +1,19 @@
 RootComponents:
   RootComponent:
   - '@type': 29
+    '@id': '{0befd648-eea5-f011-bbd2-7c1e52804440}'
+    '@behavior': 0
+  - '@type': 29
     '@id': '{19b4f785-af5d-f011-bec1-7c1e5219079a}'
     '@behavior': 0
   - '@type': 29
+    '@id': '{6e543d09-8fa7-f011-bbd2-000d3a9a284c}'
+    '@behavior': 0
+  - '@type': 29
     '@id': '{749435dc-9c65-f011-bec2-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{76147395-3fa4-f011-bbd2-7ced8d21ddf3}'
     '@behavior': 0
   - '@type': 29
     '@id': '{782e7ab0-825a-f011-bec1-7c1e5219079a}'
@@ -29,6 +38,9 @@ RootComponents:
     '@behavior': 0
   - '@type': 29
     '@id': '{e9372af8-a25d-f011-bec1-7c1e5219079a}'
+    '@behavior': 0
+  - '@type': 29
+    '@id': '{f0b55173-7ba7-f011-bbd2-000d3a9a284c}'
     '@behavior': 0
   - '@type': 29
     '@id': '{f22bb6d4-185c-f011-bec1-7c1e5219079a}'

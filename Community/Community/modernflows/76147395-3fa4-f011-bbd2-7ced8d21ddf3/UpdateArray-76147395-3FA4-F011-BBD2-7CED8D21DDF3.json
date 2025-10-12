@@ -1,0 +1,101 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "d33b93f8-b9cc-4512-85ee-61e793f058fe"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Initialize_variable": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "54b9b8f4-e833-432b-aeb6-2b24e03316b2"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Data",
+                "type": "array",
+                "value": [
+                  {
+                    "index": "1000",
+                    "text": "Customer id"
+                  },
+                  {
+                    "index": "1100",
+                    "text": "21009515004"
+                  },
+                  {
+                    "index": "1200",
+                    "text": "Bill number"
+                  },
+                  {
+                    "index": "400A",
+                    "text": "11023587"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "Select": {
+          "runAfter": {
+            "Initialize_variable": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "dcf7e219-d069-47bb-b4de-ba1824d93f6d"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@variables('Data')",
+            "select": {
+              "index": "@item()?['index']",
+              "text": "@if(equals(item()?['index'], '400A'), 'Stefan', item()?['text'])"
+            }
+          }
+        },
+        "Set_variable": {
+          "runAfter": {
+            "Select": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a8ad4476-a6bf-456a-a7a8-348c491469c4"
+          },
+          "type": "SetVariable",
+          "inputs": {
+            "name": "Data",
+            "value": "@body('Select')"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}
